@@ -1,0 +1,5584 @@
+{
+  "sheets": {
+    "STALL CHART": {
+      "dimensions": "A1:AI52",
+      "cells": {
+        "B2": {
+          "value": "CUSTOMER",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "I2": {
+          "value": "UNIT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B4": {
+          "value": "HEAT EXCHANGER",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "I4": {
+          "value": "DATE",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B7": {
+          "value": "Duty (BTU/hr)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D7": {
+          "value": 1257060,
+          "data_type": "n",
+          "number_format": "#,##0"
+        },
+        "B8": {
+          "value": "Surface Area (ft\u00b2)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D8": {
+          "value": 58.71,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "B9": {
+          "value": "HTC (Clean)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D9": {
+          "value": 140,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "B10": {
+          "value": "HTC (Service)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D10": {
+          "value": 110,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "B11": {
+          "value": "Process (Ti)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D11": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "B12": {
+          "value": "Process (To)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D12": {
+          "value": 300,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "B13": {
+          "value": "Backpressure (Max)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D13": {
+          "value": 70,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E13": {
+          "value": "=Tsat_p((D13)+14.7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==Tsat_p((D13)+14.7)"
+        },
+        "AI13": {
+          "value": "Stall",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B14": {
+          "value": "Backpressure (Min)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D14": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E14": {
+          "value": "=Tsat_p((D14)+14.7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==Tsat_p((D14)+14.7)"
+        },
+        "AI14": {
+          "value": "Yes",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B15": {
+          "value": "Max Feed Rate",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D15": {
+          "value": 1057,
+          "data_type": "n",
+          "number_format": "#,##0"
+        },
+        "AI15": {
+          "value": "No",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E17": {
+          "value": "Clean",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G17": {
+          "value": "Steam Flow",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H17": {
+          "value": "Service",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "J17": {
+          "value": "Steam Flow",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B18": {
+          "value": "Capacity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C18": {
+          "value": "% Load",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D18": {
+          "value": "Duty (BTU/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E18": {
+          "value": "Steam (t)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F18": {
+          "value": "Steam (p) ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G18": {
+          "value": "lbs/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H18": {
+          "value": "Steam (t)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "I18": {
+          "value": "Steam (p)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "J18": {
+          "value": "lbs/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B20": {
+          "value": "=D15",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D15"
+        },
+        "C20": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D20": {
+          "value": "=D7",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==D7"
+        },
+        "E20": {
+          "value": "=($D$12-(Z20*$D$11))/(1-Z20)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z20*$D$11))/(1-Z20)"
+        },
+        "F20": {
+          "value": "=(psat_t(E20))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E20))-14.5"
+        },
+        "G20": {
+          "value": "=D20/(hV_p(F20+14.7)-hL_p(F20+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D20/(hV_p(F20+14.7)-hL_p(F20+14.7))"
+        },
+        "H20": {
+          "value": "=($D$12-(AA20*$D$11))/(1-AA20)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA20*$D$11))/(1-AA20)"
+        },
+        "I20": {
+          "value": "=(psat_t(H20))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H20))-14.5"
+        },
+        "J20": {
+          "value": "=D20/(hV_p(I20+14.7)-hL_p(I20+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D20/(hV_p(I20+14.7)-hL_p(I20+14.7))"
+        },
+        "Z20": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D20)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D20)"
+        },
+        "AA20": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D20)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D20)"
+        },
+        "B21": {
+          "value": "=$B$20*C21/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C21/100"
+        },
+        "C21": {
+          "value": 90,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D21": {
+          "value": "=($D$20/100)*C21",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C21"
+        },
+        "E21": {
+          "value": "=($D$12-(Z21*$D$11))/(1-Z21)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z21*$D$11))/(1-Z21)"
+        },
+        "F21": {
+          "value": "=(psat_t(E21))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E21))-14.5"
+        },
+        "G21": {
+          "value": "=D21/(hV_p(F21+14.7)-hL_p(F21+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D21/(hV_p(F21+14.7)-hL_p(F21+14.7))"
+        },
+        "H21": {
+          "value": "=($D$12-(AA21*$D$11))/(1-AA21)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA21*$D$11))/(1-AA21)"
+        },
+        "I21": {
+          "value": "=(psat_t(H21))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H21))-14.5"
+        },
+        "J21": {
+          "value": "=D21/(hV_p(I21+14.7)-hL_p(I21+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D21/(hV_p(I21+14.7)-hL_p(I21+14.7))"
+        },
+        "Z21": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D21)"
+        },
+        "AA21": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D21)"
+        },
+        "B22": {
+          "value": "=$B$20*C22/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C22/100"
+        },
+        "C22": {
+          "value": 80,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D22": {
+          "value": "=($D$20/100)*C22",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C22"
+        },
+        "E22": {
+          "value": "=($D$12-(Z22*$D$11))/(1-Z22)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z22*$D$11))/(1-Z22)"
+        },
+        "F22": {
+          "value": "=(psat_t(E22))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E22))-14.5"
+        },
+        "G22": {
+          "value": "=D22/(hV_p(F22+14.7)-hL_p(F22+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D22/(hV_p(F22+14.7)-hL_p(F22+14.7))"
+        },
+        "H22": {
+          "value": "=($D$12-(AA22*$D$11))/(1-AA22)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA22*$D$11))/(1-AA22)"
+        },
+        "I22": {
+          "value": "=(psat_t(H22))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H22))-14.5"
+        },
+        "J22": {
+          "value": "=D22/(hV_p(I22+14.7)-hL_p(I22+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D22/(hV_p(I22+14.7)-hL_p(I22+14.7))"
+        },
+        "Z22": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D22)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D22)"
+        },
+        "AA22": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D22)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D22)"
+        },
+        "B23": {
+          "value": "=$B$20*C23/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C23/100"
+        },
+        "C23": {
+          "value": 70,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D23": {
+          "value": "=($D$20/100)*C23",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C23"
+        },
+        "E23": {
+          "value": "=($D$12-(Z23*$D$11))/(1-Z23)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z23*$D$11))/(1-Z23)"
+        },
+        "F23": {
+          "value": "=(psat_t(E23))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E23))-14.5"
+        },
+        "G23": {
+          "value": "=D23/(hV_p(F23+14.7)-hL_p(F23+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D23/(hV_p(F23+14.7)-hL_p(F23+14.7))"
+        },
+        "H23": {
+          "value": "=($D$12-(AA23*$D$11))/(1-AA23)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA23*$D$11))/(1-AA23)"
+        },
+        "I23": {
+          "value": "=(psat_t(H23))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H23))-14.5"
+        },
+        "J23": {
+          "value": "=D23/(hV_p(I23+14.7)-hL_p(I23+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D23/(hV_p(I23+14.7)-hL_p(I23+14.7))"
+        },
+        "Z23": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D23)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D23)"
+        },
+        "AA23": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D23)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D23)"
+        },
+        "B24": {
+          "value": "=$B$20*C24/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C24/100"
+        },
+        "C24": {
+          "value": 60,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D24": {
+          "value": "=($D$20/100)*C24",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C24"
+        },
+        "E24": {
+          "value": "=($D$12-(Z24*$D$11))/(1-Z24)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z24*$D$11))/(1-Z24)"
+        },
+        "F24": {
+          "value": "=(psat_t(E24))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E24))-14.5"
+        },
+        "G24": {
+          "value": "=D24/(hV_p(F24+14.7)-hL_p(F24+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D24/(hV_p(F24+14.7)-hL_p(F24+14.7))"
+        },
+        "H24": {
+          "value": "=($D$12-(AA24*$D$11))/(1-AA24)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA24*$D$11))/(1-AA24)"
+        },
+        "I24": {
+          "value": "=(psat_t(H24))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H24))-14.5"
+        },
+        "J24": {
+          "value": "=D24/(hV_p(I24+14.7)-hL_p(I24+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D24/(hV_p(I24+14.7)-hL_p(I24+14.7))"
+        },
+        "Z24": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D24)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D24)"
+        },
+        "AA24": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D24)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D24)"
+        },
+        "B25": {
+          "value": "=$B$20*C25/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C25/100"
+        },
+        "C25": {
+          "value": 50,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D25": {
+          "value": "=($D$20/100)*C25",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C25"
+        },
+        "E25": {
+          "value": "=($D$12-(Z25*$D$11))/(1-Z25)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z25*$D$11))/(1-Z25)"
+        },
+        "F25": {
+          "value": "=(psat_t(E25))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E25))-14.5"
+        },
+        "G25": {
+          "value": "=D25/(hV_p(F25+14.7)-hL_p(F25+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D25/(hV_p(F25+14.7)-hL_p(F25+14.7))"
+        },
+        "H25": {
+          "value": "=($D$12-(AA25*$D$11))/(1-AA25)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA25*$D$11))/(1-AA25)"
+        },
+        "I25": {
+          "value": "=(psat_t(H25))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H25))-14.5"
+        },
+        "J25": {
+          "value": "=D25/(hV_p(I25+14.7)-hL_p(I25+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D25/(hV_p(I25+14.7)-hL_p(I25+14.7))"
+        },
+        "Z25": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D25)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D25)"
+        },
+        "AA25": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D25)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D25)"
+        },
+        "B26": {
+          "value": "=$B$20*C26/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C26/100"
+        },
+        "C26": {
+          "value": 40,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D26": {
+          "value": "=($D$20/100)*C26",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C26"
+        },
+        "E26": {
+          "value": "=($D$12-(Z26*$D$11))/(1-Z26)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z26*$D$11))/(1-Z26)"
+        },
+        "F26": {
+          "value": "=(psat_t(E26))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E26))-14.5"
+        },
+        "G26": {
+          "value": "=D26/(hV_p(F26+14.7)-hL_p(F26+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D26/(hV_p(F26+14.7)-hL_p(F26+14.7))"
+        },
+        "H26": {
+          "value": "=($D$12-(AA26*$D$11))/(1-AA26)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA26*$D$11))/(1-AA26)"
+        },
+        "I26": {
+          "value": "=(psat_t(H26))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H26))-14.5"
+        },
+        "J26": {
+          "value": "=D26/(hV_p(I26+14.7)-hL_p(I26+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D26/(hV_p(I26+14.7)-hL_p(I26+14.7))"
+        },
+        "Z26": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D26)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D26)"
+        },
+        "AA26": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D26)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D26)"
+        },
+        "B27": {
+          "value": "=$B$20*C27/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C27/100"
+        },
+        "C27": {
+          "value": 30,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D27": {
+          "value": "=($D$20/100)*C27",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C27"
+        },
+        "E27": {
+          "value": "=($D$12-(Z27*$D$11))/(1-Z27)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z27*$D$11))/(1-Z27)"
+        },
+        "F27": {
+          "value": "=(psat_t(E27))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E27))-14.5"
+        },
+        "G27": {
+          "value": "=D27/(hV_p(F27+14.7)-hL_p(F27+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D27/(hV_p(F27+14.7)-hL_p(F27+14.7))"
+        },
+        "H27": {
+          "value": "=($D$12-(AA27*$D$11))/(1-AA27)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA27*$D$11))/(1-AA27)"
+        },
+        "I27": {
+          "value": "=(psat_t(H27))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H27))-14.5"
+        },
+        "J27": {
+          "value": "=D27/(hV_p(I27+14.7)-hL_p(I27+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D27/(hV_p(I27+14.7)-hL_p(I27+14.7))"
+        },
+        "Z27": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D27)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D27)"
+        },
+        "AA27": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D27)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D27)"
+        },
+        "B28": {
+          "value": "=$B$20*C28/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C28/100"
+        },
+        "C28": {
+          "value": 20,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D28": {
+          "value": "=($D$20/100)*C28",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C28"
+        },
+        "E28": {
+          "value": "=($D$12-(Z28*$D$11))/(1-Z28)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z28*$D$11))/(1-Z28)"
+        },
+        "F28": {
+          "value": "=(psat_t(E28))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E28))-14.5"
+        },
+        "G28": {
+          "value": "=D28/(hV_p(F28+14.7)-hL_p(F28+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D28/(hV_p(F28+14.7)-hL_p(F28+14.7))"
+        },
+        "H28": {
+          "value": "=($D$12-(AA28*$D$11))/(1-AA28)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA28*$D$11))/(1-AA28)"
+        },
+        "I28": {
+          "value": "=(psat_t(H28))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H28))-14.5"
+        },
+        "J28": {
+          "value": "=D28/(hV_p(I28+14.7)-hL_p(I28+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D28/(hV_p(I28+14.7)-hL_p(I28+14.7))"
+        },
+        "Z28": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D28)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D28)"
+        },
+        "AA28": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D28)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D28)"
+        },
+        "B29": {
+          "value": "=$B$20*C29/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C29/100"
+        },
+        "C29": {
+          "value": 10,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D29": {
+          "value": "=($D$20/100)*C29",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C29"
+        },
+        "E29": {
+          "value": "=($D$12-(Z29*$D$11))/(1-Z29)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z29*$D$11))/(1-Z29)"
+        },
+        "F29": {
+          "value": "=(psat_t(E29))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E29))-14.5"
+        },
+        "G29": {
+          "value": "=D29/(hV_p(F29+14.7)-hL_p(F29+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D29/(hV_p(F29+14.7)-hL_p(F29+14.7))"
+        },
+        "H29": {
+          "value": "=($D$12-(AA29*$D$11))/(1-AA29)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA29*$D$11))/(1-AA29)"
+        },
+        "I29": {
+          "value": "=(psat_t(H29))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H29))-14.5"
+        },
+        "J29": {
+          "value": "=D29/(hV_p(I29+14.7)-hL_p(I29+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D29/(hV_p(I29+14.7)-hL_p(I29+14.7))"
+        },
+        "Z29": {
+          "value": "=EXP((($D$11-$D$12)*$D$9*$D$8)/D29)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D29)"
+        },
+        "AA29": {
+          "value": "=EXP((($D$11-$D$12)*$D$10*$D$8)/D29)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D29)"
+        },
+        "B30": {
+          "value": "=$B$20*C30/100",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==$B$20*C30/100"
+        },
+        "C30": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D30": {
+          "value": "=($D$20/100)*C30",
+          "data_type": "f",
+          "number_format": "#,##0_);[Red](#,##0)",
+          "formula": "==($D$20/100)*C30"
+        },
+        "E30": {
+          "value": "=($D$12-(Z30*$D$11))/(1-Z30)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(Z30*$D$11))/(1-Z30)"
+        },
+        "F30": {
+          "value": "=(psat_t(E30))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(E30))-14.5"
+        },
+        "G30": {
+          "value": "=D30/(hV_p(F30+14.7)-hL_p(F30+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D30/(hV_p(F30+14.7)-hL_p(F30+14.7))"
+        },
+        "H30": {
+          "value": "=($D$12-(AA30*$D$11))/(1-AA30)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==($D$12-(AA30*$D$11))/(1-AA30)"
+        },
+        "I30": {
+          "value": "=(psat_t(H30))-14.5",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==(psat_t(H30))-14.5"
+        },
+        "J30": {
+          "value": "=D30/(hV_p(I30+14.7)-hL_p(I30+14.7))",
+          "data_type": "f",
+          "number_format": "#,##0",
+          "formula": "==D30/(hV_p(I30+14.7)-hL_p(I30+14.7))"
+        },
+        "C33": {
+          "value": "Stall Points",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D33": {
+          "value": "STALL Max",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E33": {
+          "value": "=IF(C34=\"yes\",11-E34,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"yes\",11-E34,0)"
+        },
+        "F33": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "G33": {
+          "value": "=IF(C34=\"Yes\",11-G34,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",11-G34,0)"
+        },
+        "H33": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "C34": {
+          "value": "No",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D34": {
+          "value": "STALL Max",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E34": {
+          "value": "=IF(C34=\"Yes\",(($E$13-$E$30)/($E$20-$E$30)*10),0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",(($E$13-$E$30)/($E$20-$E$30)*10),0)"
+        },
+        "F34": {
+          "value": "=IF(C34=\"Yes\",E13,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",E13,0)"
+        },
+        "G34": {
+          "value": "=IF(C34=\"Yes\",(($E$13-$H$30)/($H$20-$H$30)*10),0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",(($E$13-$H$30)/($H$20-$H$30)*10),0)"
+        },
+        "H34": {
+          "value": "=IF(C34=\"Yes\",E13,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",E13,0)"
+        },
+        "D35": {
+          "value": "STALL Min",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E35": {
+          "value": "=IF(C34=\"Yes\",11-E36,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",11-E36,0)"
+        },
+        "F35": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "G35": {
+          "value": "=IF(C34=\"Yes\",11-G36,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",11-G36,0)"
+        },
+        "H35": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "D36": {
+          "value": "STALL Min",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E36": {
+          "value": "=IF(C34=\"Yes\",(($E$14-$E$30)/($E$20-$E$30)*10),0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",(($E$14-$E$30)/($E$20-$E$30)*10),0)"
+        },
+        "F36": {
+          "value": "=IF(C34=\"Yes\",E14,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",E14,0)"
+        },
+        "G36": {
+          "value": "=IF(C34=\"Yes\",(($E$14-$H$30)/($H$20-$H$30)*10),0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",(($E$14-$H$30)/($H$20-$H$30)*10),0)"
+        },
+        "H36": {
+          "value": "=IF(C34=\"Yes\",E14,0)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==IF(C34=\"Yes\",E14,0)"
+        },
+        "C39": {
+          "value": "% Load",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D39": {
+          "value": "PROCESS",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E39": {
+          "value": "BP1",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F39": {
+          "value": "BP2",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G39": {
+          "value": "BP Range",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C40": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D40": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E40": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F40": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G40": {
+          "value": "=F40-E40",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F40-E40"
+        },
+        "C41": {
+          "value": 90,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D41": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E41": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F41": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G41": {
+          "value": "=F41-E41",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F41-E41"
+        },
+        "C42": {
+          "value": 80,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D42": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E42": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F42": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G42": {
+          "value": "=F42-E42",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F42-E42"
+        },
+        "C43": {
+          "value": 70,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D43": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E43": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F43": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G43": {
+          "value": "=F43-E43",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F43-E43"
+        },
+        "C44": {
+          "value": 60,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D44": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E44": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F44": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G44": {
+          "value": "=F44-E44",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F44-E44"
+        },
+        "C45": {
+          "value": 50,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D45": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E45": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F45": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G45": {
+          "value": "=F45-E45",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F45-E45"
+        },
+        "C46": {
+          "value": 40,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D46": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E46": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F46": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G46": {
+          "value": "=F46-E46",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F46-E46"
+        },
+        "C47": {
+          "value": 30,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D47": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E47": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F47": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G47": {
+          "value": "=F47-E47",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F47-E47"
+        },
+        "C48": {
+          "value": 20,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D48": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E48": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F48": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G48": {
+          "value": "=F48-E48",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F48-E48"
+        },
+        "C49": {
+          "value": 10,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D49": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E49": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F49": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G49": {
+          "value": "=F49-E49",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F49-E49"
+        },
+        "C50": {
+          "value": 0,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "D50": {
+          "value": "=$D$12",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==$D$12"
+        },
+        "E50": {
+          "value": "=$E$14",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$14"
+        },
+        "F50": {
+          "value": "=$E$13",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==$E$13"
+        },
+        "G50": {
+          "value": "=F50-E50",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==F50-E50"
+        }
+      },
+      "formulas": {
+        "E13": "==Tsat_p((D13)+14.7)",
+        "E14": "==Tsat_p((D14)+14.7)",
+        "B20": "==D15",
+        "D20": "==D7",
+        "E20": "==($D$12-(Z20*$D$11))/(1-Z20)",
+        "F20": "==(psat_t(E20))-14.5",
+        "G20": "==D20/(hV_p(F20+14.7)-hL_p(F20+14.7))",
+        "H20": "==($D$12-(AA20*$D$11))/(1-AA20)",
+        "I20": "==(psat_t(H20))-14.5",
+        "J20": "==D20/(hV_p(I20+14.7)-hL_p(I20+14.7))",
+        "Z20": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D20)",
+        "AA20": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D20)",
+        "B21": "==$B$20*C21/100",
+        "D21": "==($D$20/100)*C21",
+        "E21": "==($D$12-(Z21*$D$11))/(1-Z21)",
+        "F21": "==(psat_t(E21))-14.5",
+        "G21": "==D21/(hV_p(F21+14.7)-hL_p(F21+14.7))",
+        "H21": "==($D$12-(AA21*$D$11))/(1-AA21)",
+        "I21": "==(psat_t(H21))-14.5",
+        "J21": "==D21/(hV_p(I21+14.7)-hL_p(I21+14.7))",
+        "Z21": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D21)",
+        "AA21": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D21)",
+        "B22": "==$B$20*C22/100",
+        "D22": "==($D$20/100)*C22",
+        "E22": "==($D$12-(Z22*$D$11))/(1-Z22)",
+        "F22": "==(psat_t(E22))-14.5",
+        "G22": "==D22/(hV_p(F22+14.7)-hL_p(F22+14.7))",
+        "H22": "==($D$12-(AA22*$D$11))/(1-AA22)",
+        "I22": "==(psat_t(H22))-14.5",
+        "J22": "==D22/(hV_p(I22+14.7)-hL_p(I22+14.7))",
+        "Z22": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D22)",
+        "AA22": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D22)",
+        "B23": "==$B$20*C23/100",
+        "D23": "==($D$20/100)*C23",
+        "E23": "==($D$12-(Z23*$D$11))/(1-Z23)",
+        "F23": "==(psat_t(E23))-14.5",
+        "G23": "==D23/(hV_p(F23+14.7)-hL_p(F23+14.7))",
+        "H23": "==($D$12-(AA23*$D$11))/(1-AA23)",
+        "I23": "==(psat_t(H23))-14.5",
+        "J23": "==D23/(hV_p(I23+14.7)-hL_p(I23+14.7))",
+        "Z23": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D23)",
+        "AA23": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D23)",
+        "B24": "==$B$20*C24/100",
+        "D24": "==($D$20/100)*C24",
+        "E24": "==($D$12-(Z24*$D$11))/(1-Z24)",
+        "F24": "==(psat_t(E24))-14.5",
+        "G24": "==D24/(hV_p(F24+14.7)-hL_p(F24+14.7))",
+        "H24": "==($D$12-(AA24*$D$11))/(1-AA24)",
+        "I24": "==(psat_t(H24))-14.5",
+        "J24": "==D24/(hV_p(I24+14.7)-hL_p(I24+14.7))",
+        "Z24": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D24)",
+        "AA24": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D24)",
+        "B25": "==$B$20*C25/100",
+        "D25": "==($D$20/100)*C25",
+        "E25": "==($D$12-(Z25*$D$11))/(1-Z25)",
+        "F25": "==(psat_t(E25))-14.5",
+        "G25": "==D25/(hV_p(F25+14.7)-hL_p(F25+14.7))",
+        "H25": "==($D$12-(AA25*$D$11))/(1-AA25)",
+        "I25": "==(psat_t(H25))-14.5",
+        "J25": "==D25/(hV_p(I25+14.7)-hL_p(I25+14.7))",
+        "Z25": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D25)",
+        "AA25": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D25)",
+        "B26": "==$B$20*C26/100",
+        "D26": "==($D$20/100)*C26",
+        "E26": "==($D$12-(Z26*$D$11))/(1-Z26)",
+        "F26": "==(psat_t(E26))-14.5",
+        "G26": "==D26/(hV_p(F26+14.7)-hL_p(F26+14.7))",
+        "H26": "==($D$12-(AA26*$D$11))/(1-AA26)",
+        "I26": "==(psat_t(H26))-14.5",
+        "J26": "==D26/(hV_p(I26+14.7)-hL_p(I26+14.7))",
+        "Z26": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D26)",
+        "AA26": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D26)",
+        "B27": "==$B$20*C27/100",
+        "D27": "==($D$20/100)*C27",
+        "E27": "==($D$12-(Z27*$D$11))/(1-Z27)",
+        "F27": "==(psat_t(E27))-14.5",
+        "G27": "==D27/(hV_p(F27+14.7)-hL_p(F27+14.7))",
+        "H27": "==($D$12-(AA27*$D$11))/(1-AA27)",
+        "I27": "==(psat_t(H27))-14.5",
+        "J27": "==D27/(hV_p(I27+14.7)-hL_p(I27+14.7))",
+        "Z27": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D27)",
+        "AA27": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D27)",
+        "B28": "==$B$20*C28/100",
+        "D28": "==($D$20/100)*C28",
+        "E28": "==($D$12-(Z28*$D$11))/(1-Z28)",
+        "F28": "==(psat_t(E28))-14.5",
+        "G28": "==D28/(hV_p(F28+14.7)-hL_p(F28+14.7))",
+        "H28": "==($D$12-(AA28*$D$11))/(1-AA28)",
+        "I28": "==(psat_t(H28))-14.5",
+        "J28": "==D28/(hV_p(I28+14.7)-hL_p(I28+14.7))",
+        "Z28": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D28)",
+        "AA28": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D28)",
+        "B29": "==$B$20*C29/100",
+        "D29": "==($D$20/100)*C29",
+        "E29": "==($D$12-(Z29*$D$11))/(1-Z29)",
+        "F29": "==(psat_t(E29))-14.5",
+        "G29": "==D29/(hV_p(F29+14.7)-hL_p(F29+14.7))",
+        "H29": "==($D$12-(AA29*$D$11))/(1-AA29)",
+        "I29": "==(psat_t(H29))-14.5",
+        "J29": "==D29/(hV_p(I29+14.7)-hL_p(I29+14.7))",
+        "Z29": "==EXP((($D$11-$D$12)*$D$9*$D$8)/D29)",
+        "AA29": "==EXP((($D$11-$D$12)*$D$10*$D$8)/D29)",
+        "B30": "==$B$20*C30/100",
+        "D30": "==($D$20/100)*C30",
+        "E30": "==($D$12-(Z30*$D$11))/(1-Z30)",
+        "F30": "==(psat_t(E30))-14.5",
+        "G30": "==D30/(hV_p(F30+14.7)-hL_p(F30+14.7))",
+        "H30": "==($D$12-(AA30*$D$11))/(1-AA30)",
+        "I30": "==(psat_t(H30))-14.5",
+        "J30": "==D30/(hV_p(I30+14.7)-hL_p(I30+14.7))",
+        "E33": "==IF(C34=\"yes\",11-E34,0)",
+        "G33": "==IF(C34=\"Yes\",11-G34,0)",
+        "E34": "==IF(C34=\"Yes\",(($E$13-$E$30)/($E$20-$E$30)*10),0)",
+        "F34": "==IF(C34=\"Yes\",E13,0)",
+        "G34": "==IF(C34=\"Yes\",(($E$13-$H$30)/($H$20-$H$30)*10),0)",
+        "H34": "==IF(C34=\"Yes\",E13,0)",
+        "E35": "==IF(C34=\"Yes\",11-E36,0)",
+        "G35": "==IF(C34=\"Yes\",11-G36,0)",
+        "E36": "==IF(C34=\"Yes\",(($E$14-$E$30)/($E$20-$E$30)*10),0)",
+        "F36": "==IF(C34=\"Yes\",E14,0)",
+        "G36": "==IF(C34=\"Yes\",(($E$14-$H$30)/($H$20-$H$30)*10),0)",
+        "H36": "==IF(C34=\"Yes\",E14,0)",
+        "D40": "==$D$12",
+        "E40": "==$E$14",
+        "F40": "==$E$13",
+        "G40": "==F40-E40",
+        "D41": "==$D$12",
+        "E41": "==$E$14",
+        "F41": "==$E$13",
+        "G41": "==F41-E41",
+        "D42": "==$D$12",
+        "E42": "==$E$14",
+        "F42": "==$E$13",
+        "G42": "==F42-E42",
+        "D43": "==$D$12",
+        "E43": "==$E$14",
+        "F43": "==$E$13",
+        "G43": "==F43-E43",
+        "D44": "==$D$12",
+        "E44": "==$E$14",
+        "F44": "==$E$13",
+        "G44": "==F44-E44",
+        "D45": "==$D$12",
+        "E45": "==$E$14",
+        "F45": "==$E$13",
+        "G45": "==F45-E45",
+        "D46": "==$D$12",
+        "E46": "==$E$14",
+        "F46": "==$E$13",
+        "G46": "==F46-E46",
+        "D47": "==$D$12",
+        "E47": "==$E$14",
+        "F47": "==$E$13",
+        "G47": "==F47-E47",
+        "D48": "==$D$12",
+        "E48": "==$E$14",
+        "F48": "==$E$13",
+        "G48": "==F48-E48",
+        "D49": "==$D$12",
+        "E49": "==$E$14",
+        "F49": "==$E$13",
+        "G49": "==F49-E49",
+        "D50": "==$D$12",
+        "E50": "==$E$14",
+        "F50": "==$E$13",
+        "G50": "==F50-E50"
+      },
+      "merged_cells": [
+        "J4:N4",
+        "B13:C13",
+        "H17:I17",
+        "B15:C15",
+        "B7:C7",
+        "B11:C11",
+        "B10:C10",
+        "J2:N2",
+        "B14:C14",
+        "D2:G2",
+        "B9:C9",
+        "E17:F17",
+        "B8:C8",
+        "B12:C12",
+        "D4:G4"
+      ]
+    },
+    "Properties": {
+      "dimensions": "B1:J29",
+      "cells": {
+        "B1": {
+          "value": "X Steam Tables  (English Units)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B2": {
+          "value": "Excel macros, IF-97 Steam tables. ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D2": {
+          "value": "The excel scripts are stored inside this workbook. A complete list of functions for use is available on the \"Calling functions\" worksheet",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B3": {
+          "value": "By: Magnus Holmgren",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D3": {
+          "value": "The steam tables are free and provided as is. We take no responsibilities for any errors in the code or damage thereby.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B4": {
+          "value": "www.x-eng.com",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D4": {
+          "value": "OBS: This workbook uses macros. Set security options in Tools:Macro:Security\u2026 to enable macros.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B6": {
+          "value": "Saturation properties given temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F6": {
+          "value": "Saturation properties given pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B7": {
+          "value": "Temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C7": {
+          "value": 300,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "D7": {
+          "value": "degF",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F7": {
+          "value": "Pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G7": {
+          "value": "='STALL CHART'!#REF!",
+          "data_type": "f",
+          "number_format": "0.000",
+          "formula": "=='STALL CHART'!#REF!"
+        },
+        "H7": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B8": {
+          "value": "Saturation pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C8": {
+          "value": "=psat_t(C7)",
+          "data_type": "f",
+          "number_format": "0.000",
+          "formula": "==psat_t(C7)"
+        },
+        "D8": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F8": {
+          "value": "Saturation temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G8": {
+          "value": "=Tsat_p(G7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==Tsat_p(G7)"
+        },
+        "H8": {
+          "value": "degF",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B9": {
+          "value": "Liquid",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F9": {
+          "value": "Liquid",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B10": {
+          "value": "Enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C10": {
+          "value": "=hL_T(C7)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==hL_T(C7)"
+        },
+        "D10": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F10": {
+          "value": "Enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G10": {
+          "value": "=hL_p(G7)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==hL_p(G7)"
+        },
+        "H10": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B11": {
+          "value": "Density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C11": {
+          "value": "=rhoL_T(C7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rhoL_T(C7)"
+        },
+        "D11": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F11": {
+          "value": "Density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G11": {
+          "value": "=rhoL_P(G7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rhoL_P(G7)"
+        },
+        "H11": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B12": {
+          "value": "Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C12": {
+          "value": "=sL_T(C7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==sL_T(C7)"
+        },
+        "D12": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F12": {
+          "value": "Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G12": {
+          "value": "=sL_p(G7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==sL_p(G7)"
+        },
+        "H12": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B13": {
+          "value": "Vapour",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F13": {
+          "value": "Vapour",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B14": {
+          "value": "Vapour enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C14": {
+          "value": "=hV_T(C7)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==hV_T(C7)"
+        },
+        "D14": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F14": {
+          "value": "Vapour enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G14": {
+          "value": "=hV_p(G7)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==hV_p(G7)"
+        },
+        "H14": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B15": {
+          "value": "Vapour density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C15": {
+          "value": "=rhoV_T(C7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rhoV_T(C7)"
+        },
+        "D15": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F15": {
+          "value": "Vapour density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G15": {
+          "value": "=rhoV_p(G7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rhoV_p(G7)"
+        },
+        "H15": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B16": {
+          "value": "Vapour Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C16": {
+          "value": "=sV_T(C7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==sV_T(C7)"
+        },
+        "D16": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F16": {
+          "value": "vapour Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G16": {
+          "value": "=sV_p(G7)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==sV_p(G7)"
+        },
+        "H16": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B17": {
+          "value": "Evaporation energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C17": {
+          "value": "=C14-C10",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==C14-C10"
+        },
+        "D17": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F17": {
+          "value": "Evaporation energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G17": {
+          "value": "=G14-G10",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==G14-G10"
+        },
+        "H17": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B19": {
+          "value": "Properties given pressure and temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F19": {
+          "value": "Properties given pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B20": {
+          "value": "Pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C20": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "D20": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F20": {
+          "value": "Pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G20": {
+          "value": 125,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "H20": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B21": {
+          "value": "Temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C21": {
+          "value": 50,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "D21": {
+          "value": "degF",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F21": {
+          "value": "Enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G21": {
+          "value": 2788,
+          "data_type": "n",
+          "number_format": "0.00"
+        },
+        "H21": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B22": {
+          "value": "Enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C22": {
+          "value": "=h_pt(C20,C21)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==h_pt(C20,C21)"
+        },
+        "D22": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F22": {
+          "value": "Temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G22": {
+          "value": "=T_ph(G20,G21)",
+          "data_type": "f",
+          "number_format": "0.0",
+          "formula": "==T_ph(G20,G21)"
+        },
+        "H22": {
+          "value": "degF",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B23": {
+          "value": "Density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C23": {
+          "value": "=rho_pT(C20,C21)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rho_pT(C20,C21)"
+        },
+        "D23": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F23": {
+          "value": "Density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G23": {
+          "value": "=rho_ph(G20,G21)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==rho_ph(G20,G21)"
+        },
+        "H23": {
+          "value": "lb /ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B24": {
+          "value": "Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C24": {
+          "value": "=s_pT(C20,C21)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==s_pT(C20,C21)"
+        },
+        "D24": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F24": {
+          "value": "Entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G24": {
+          "value": "=s_ph(G20,G21)",
+          "data_type": "f",
+          "number_format": "0.00",
+          "formula": "==s_ph(G20,G21)"
+        },
+        "H24": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B25": {
+          "value": "Vapour fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C25": {
+          "value": "=x_ph(C20,C22)*100",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==x_ph(C20,C22)*100"
+        },
+        "D25": {
+          "value": "%",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F25": {
+          "value": "Vapour fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G25": {
+          "value": "=x_ph(G20,G21)*100",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==x_ph(G20,G21)*100"
+        },
+        "H25": {
+          "value": "%",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B26": {
+          "value": "IF97 Region",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C26": {
+          "value": "=region_pt(C20/10,C21+273.15)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==region_pt(C20/10,C21+273.15)"
+        },
+        "F26": {
+          "value": "IF97 Region",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G26": {
+          "value": "=region_ph(G20/10,G21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==region_ph(G20/10,G21)"
+        },
+        "B27": {
+          "value": "Phase",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C27": {
+          "value": "=IF(C26=2,\"Steam\",IF(C26=1,\"Liquid\",IF(C26=4,\"Mixture\",\"\")))",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==IF(C26=2,\"Steam\",IF(C26=1,\"Liquid\",IF(C26=4,\"Mixture\",\"\")))"
+        },
+        "F27": {
+          "value": "Phase",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G27": {
+          "value": "=IF(G26=2,\"Steam\",IF(G26=1,\"Liquid\",IF(G26=4,\"Mixture\",\"\")))",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==IF(G26=2,\"Steam\",IF(G26=1,\"Liquid\",IF(G26=4,\"Mixture\",\"\")))"
+        },
+        "B28": {
+          "value": "Isobaric heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C28": {
+          "value": "=Cp_pT(C20,C21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cp_pT(C20,C21)"
+        },
+        "D28": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F28": {
+          "value": "Isobaric heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G28": {
+          "value": "=Cp_ph(G20,G21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cp_ph(G20,G21)"
+        },
+        "H28": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B29": {
+          "value": "Speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "C29": {
+          "value": "=w_pT(C20,C21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==w_pT(C20,C21)"
+        },
+        "D29": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F29": {
+          "value": "Speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "G29": {
+          "value": "=w_ph(G20,G21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==w_ph(G20,G21)"
+        },
+        "H29": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        }
+      },
+      "formulas": {
+        "G7": "=='STALL CHART'!#REF!",
+        "C8": "==psat_t(C7)",
+        "G8": "==Tsat_p(G7)",
+        "C10": "==hL_T(C7)",
+        "G10": "==hL_p(G7)",
+        "C11": "==rhoL_T(C7)",
+        "G11": "==rhoL_P(G7)",
+        "C12": "==sL_T(C7)",
+        "G12": "==sL_p(G7)",
+        "C14": "==hV_T(C7)",
+        "G14": "==hV_p(G7)",
+        "C15": "==rhoV_T(C7)",
+        "G15": "==rhoV_p(G7)",
+        "C16": "==sV_T(C7)",
+        "G16": "==sV_p(G7)",
+        "C17": "==C14-C10",
+        "G17": "==G14-G10",
+        "C22": "==h_pt(C20,C21)",
+        "G22": "==T_ph(G20,G21)",
+        "C23": "==rho_pT(C20,C21)",
+        "G23": "==rho_ph(G20,G21)",
+        "C24": "==s_pT(C20,C21)",
+        "G24": "==s_ph(G20,G21)",
+        "C25": "==x_ph(C20,C22)*100",
+        "G25": "==x_ph(G20,G21)*100",
+        "C26": "==region_pt(C20/10,C21+273.15)",
+        "G26": "==region_ph(G20/10,G21)",
+        "C27": "==IF(C26=2,\"Steam\",IF(C26=1,\"Liquid\",IF(C26=4,\"Mixture\",\"\")))",
+        "G27": "==IF(G26=2,\"Steam\",IF(G26=1,\"Liquid\",IF(G26=4,\"Mixture\",\"\")))",
+        "C28": "==Cp_pT(C20,C21)",
+        "G28": "==Cp_ph(G20,G21)",
+        "C29": "==w_pT(C20,C21)",
+        "G29": "==w_ph(G20,G21)"
+      },
+      "merged_cells": []
+    },
+    "Functions": {
+      "dimensions": "A1:K141",
+      "cells": {
+        "A1": {
+          "value": "X Steam Tables",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D1": {
+          "value": "v2.3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "E1": {
+          "value": "http://www.x-eng.com",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A2": {
+          "value": "Steam tables by Magnus Holmgren according to IAPWS IF-97 ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A3": {
+          "value": "The excel scripts are stored inside this workbook. (No extra files are needed. Start from a copy of this workbook. This page can be removed)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A4": {
+          "value": "For error-reporting, feedback, other units etc. contact:",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F4": {
+          "value": "magnus@x-eng.com",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A5": {
+          "value": "The steam tables are free and provided as is. We take no responsibilities for any errors in the code or damage thereby.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A6": {
+          "value": "OBS: This workbook uses macros. Set security options in Tools:Macro:Security\u2026 to enable macros.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A8": {
+          "value": "Temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A9": {
+          "value": "Tsat_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B9": {
+          "value": 14.5037738,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C9": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F9": {
+          "value": "=Tsat_p(B9)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Tsat_p(B9)"
+        },
+        "G9": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H9": {
+          "value": "Saturation temperature",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A10": {
+          "value": "T_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B10": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C10": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D10": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E10": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F10": {
+          "value": "=T_ph(B10,D10)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==T_ph(B10,D10)"
+        },
+        "G10": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H10": {
+          "value": "Temperture as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A11": {
+          "value": "T_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B11": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C11": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D11": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E11": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F11": {
+          "value": "=T_ps(B11,D11)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==T_ps(B11,D11)"
+        },
+        "G11": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H11": {
+          "value": "Temperture as a function of pressure and entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A12": {
+          "value": "T_hs",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B12": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C12": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D12": {
+          "value": 0.2,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E12": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F12": {
+          "value": "=T_hs(B12,D12)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==T_hs(B12,D12)"
+        },
+        "G12": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H12": {
+          "value": "Temperture as a function of enthalpy and entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A13": {
+          "value": "Pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A14": {
+          "value": "psat_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B14": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C14": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F14": {
+          "value": "=psat_t(B14)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==psat_t(B14)"
+        },
+        "G14": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H14": {
+          "value": "Saturation pressure",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A15": {
+          "value": "p_hs",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B15": {
+          "value": 84,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C15": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D15": {
+          "value": 0.296,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E15": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F15": {
+          "value": "=p_hs(B15,D15)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==p_hs(B15,D15)"
+        },
+        "G15": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H15": {
+          "value": "Pressure as a function of h and s. ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A16": {
+          "value": "p_hrho",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B16": {
+          "value": 2000,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C16": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D16": {
+          "value": 5,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E16": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F16": {
+          "value": "=p_hrho(B16,D16)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==p_hrho(B16,D16)"
+        },
+        "G16": {
+          "value": "psi (a)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H16": {
+          "value": "Pressure as a function of h and rho (density). Very unaccurate for solid water region since it's almost incompressible!",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A17": {
+          "value": "Enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A18": {
+          "value": "hV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B18": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C18": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F18": {
+          "value": "=hV_p(B18)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==hV_p(B18)"
+        },
+        "G18": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H18": {
+          "value": "Saturated vapour enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A19": {
+          "value": "hL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B19": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C19": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F19": {
+          "value": "=hL_p(B19)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==hL_p(B19)"
+        },
+        "G19": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H19": {
+          "value": "Saturated liquid enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A20": {
+          "value": "hV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B20": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C20": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F20": {
+          "value": "=hV_T(B20)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==hV_T(B20)"
+        },
+        "G20": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H20": {
+          "value": "Saturated vapour enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A21": {
+          "value": "hL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B21": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C21": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F21": {
+          "value": "=hL_T(B21)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==hL_T(B21)"
+        },
+        "G21": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H21": {
+          "value": "Saturated liquid enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A22": {
+          "value": "h_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B22": {
+          "value": 14.5037738,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C22": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D22": {
+          "value": 68,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E22": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F22": {
+          "value": "=h_pt(B22,D22)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==h_pt(B22,D22)"
+        },
+        "G22": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H22": {
+          "value": "Entalpy as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A23": {
+          "value": "h_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B23": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C23": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D23": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E23": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F23": {
+          "value": "=h_ps(B23,D23)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==h_ps(B23,D23)"
+        },
+        "G23": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H23": {
+          "value": "Entalpy as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A24": {
+          "value": "h_px",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B24": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C24": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D24": {
+          "value": 0.5,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "F24": {
+          "value": "=h_px(B24,D24)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==h_px(B24,D24)"
+        },
+        "G24": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H24": {
+          "value": "Entalpy as a function of pressure and vapour fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A25": {
+          "value": "h_Tx",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B25": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C25": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D25": {
+          "value": 0.5,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "F25": {
+          "value": "=h_tx(B25,D25)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==h_tx(B25,D25)"
+        },
+        "G25": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H25": {
+          "value": "Entalpy as a function of temperature and vapour fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A26": {
+          "value": "h_prho",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B26": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C26": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D26": {
+          "value": 2,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E26": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F26": {
+          "value": "=h_prho(B26,D26)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==h_prho(B26,D26)"
+        },
+        "G26": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H26": {
+          "value": "Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions. (Not valid!!)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A27": {
+          "value": "Specific volume",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A28": {
+          "value": "vV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B28": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C28": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F28": {
+          "value": "=vV_p(B28)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==vV_p(B28)"
+        },
+        "G28": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H28": {
+          "value": "Saturated vapour volume",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A29": {
+          "value": "vL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B29": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C29": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F29": {
+          "value": "=vL_p(B29)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==vL_p(B29)"
+        },
+        "G29": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H29": {
+          "value": "Saturated liquid volume",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A30": {
+          "value": "vV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B30": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C30": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F30": {
+          "value": "=vV_T(B30)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==vV_T(B30)"
+        },
+        "G30": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H30": {
+          "value": "Saturated vapour volume",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A31": {
+          "value": "vL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B31": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C31": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F31": {
+          "value": "=vL_T(B31)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==vL_T(B31)"
+        },
+        "G31": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H31": {
+          "value": "Saturated liquid volume",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A32": {
+          "value": "v_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B32": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C32": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D32": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E32": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F32": {
+          "value": "=v_pT(B32,D32)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==v_pT(B32,D32)"
+        },
+        "G32": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H32": {
+          "value": "Specific volume as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A33": {
+          "value": "v_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B33": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C33": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D33": {
+          "value": 1000,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E33": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F33": {
+          "value": "=v_ph(B33,D33)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==v_ph(B33,D33)"
+        },
+        "G33": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H33": {
+          "value": "Specific volume as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A34": {
+          "value": "v_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B34": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C34": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D34": {
+          "value": 5,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E34": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F34": {
+          "value": "=v_ps(B34,D34)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==v_ps(B34,D34)"
+        },
+        "G34": {
+          "value": "ft3/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H34": {
+          "value": "Specific volume as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A35": {
+          "value": "Density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A36": {
+          "value": "rhoV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B36": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C36": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F36": {
+          "value": "=rhoV_p(B36)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rhoV_p(B36)"
+        },
+        "G36": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H36": {
+          "value": "Saturated vapour density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A37": {
+          "value": "rhoL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B37": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C37": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F37": {
+          "value": "=rhoL_P(B37)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rhoL_P(B37)"
+        },
+        "G37": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H37": {
+          "value": "Saturated liquid density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A38": {
+          "value": "rhoV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B38": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C38": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F38": {
+          "value": "=rhoV_T(B38)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rhoV_T(B38)"
+        },
+        "G38": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H38": {
+          "value": "Saturated vapour density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A39": {
+          "value": "rhoL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B39": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C39": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F39": {
+          "value": "=rhoL_T(B39)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rhoL_T(B39)"
+        },
+        "G39": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H39": {
+          "value": "Saturated liquid density",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A40": {
+          "value": "rho_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B40": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C40": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D40": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E40": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F40": {
+          "value": "=rho_pT(B40,D40)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rho_pT(B40,D40)"
+        },
+        "G40": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H40": {
+          "value": "Density as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A41": {
+          "value": "rho_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B41": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C41": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D41": {
+          "value": 1000,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E41": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F41": {
+          "value": "=rho_ph(B41,D41)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rho_ph(B41,D41)"
+        },
+        "G41": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H41": {
+          "value": "Density as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A42": {
+          "value": "rho_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B42": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C42": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D42": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E42": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F42": {
+          "value": "=rho_ps(B42,D42)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==rho_ps(B42,D42)"
+        },
+        "G42": {
+          "value": "lb/ft3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H42": {
+          "value": "Density as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A43": {
+          "value": "Specific entropy ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A44": {
+          "value": "sV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B44": {
+          "value": 0.006117,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C44": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F44": {
+          "value": "=sV_p(B44)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==sV_p(B44)"
+        },
+        "G44": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H44": {
+          "value": "Saturated vapour entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A45": {
+          "value": "sL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B45": {
+          "value": 0.0061171,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C45": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F45": {
+          "value": "=sL_p(B45)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==sL_p(B45)"
+        },
+        "G45": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H45": {
+          "value": "Saturated liquid entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A46": {
+          "value": "sV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B46": {
+          "value": 0.0001,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C46": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F46": {
+          "value": "=sV_T(B46)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==sV_T(B46)"
+        },
+        "G46": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H46": {
+          "value": "Saturated vapour entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A47": {
+          "value": "sL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B47": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C47": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F47": {
+          "value": "=sL_T(B47)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==sL_T(B47)"
+        },
+        "G47": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H47": {
+          "value": "Saturated liquid entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A48": {
+          "value": "s_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B48": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C48": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D48": {
+          "value": 20,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E48": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F48": {
+          "value": "=s_pT(B48,D48)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==s_pT(B48,D48)"
+        },
+        "G48": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H48": {
+          "value": "Specific entropy as a function of pressure and temperature (Returns saturated vapour entalpy if mixture.)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A49": {
+          "value": "s_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B49": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C49": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D49": {
+          "value": "=F22",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==F22"
+        },
+        "E49": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F49": {
+          "value": "=s_ph(B49,D49)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==s_ph(B49,D49)"
+        },
+        "G49": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H49": {
+          "value": "Specific entropy as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A50": {
+          "value": "Specific internal energy ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A51": {
+          "value": "uV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B51": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C51": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F51": {
+          "value": "=uV_p(B51)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==uV_p(B51)"
+        },
+        "G51": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H51": {
+          "value": "Saturated vapour internal energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A52": {
+          "value": "uL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B52": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C52": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F52": {
+          "value": "=uL_p(B52)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==uL_p(B52)"
+        },
+        "G52": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H52": {
+          "value": "Saturated liquid internal energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A53": {
+          "value": "uV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B53": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C53": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F53": {
+          "value": "=uV_T(B53)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==uV_T(B53)"
+        },
+        "G53": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H53": {
+          "value": "Saturated vapour internal energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A54": {
+          "value": "uL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B54": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C54": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F54": {
+          "value": "=uL_T(B54)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==uL_T(B54)"
+        },
+        "G54": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H54": {
+          "value": "Saturated liquid internal energy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A55": {
+          "value": "u_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B55": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C55": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D55": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E55": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F55": {
+          "value": "=u_pT(B55,D55)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==u_pT(B55,D55)"
+        },
+        "G55": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H55": {
+          "value": "Specific internal energy as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A56": {
+          "value": "u_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B56": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C56": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D56": {
+          "value": 1000,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E56": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F56": {
+          "value": "=u_ph(B56,D56)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==u_ph(B56,D56)"
+        },
+        "G56": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H56": {
+          "value": "Specific internal energy as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A57": {
+          "value": "u_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B57": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C57": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D57": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E57": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F57": {
+          "value": "=u_ps(B57,D57)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==u_ps(B57,D57)"
+        },
+        "G57": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H57": {
+          "value": "Specific internal energy as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A58": {
+          "value": "Specific isobaric heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A59": {
+          "value": "CpV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B59": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C59": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F59": {
+          "value": "=CpV_p(B59)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CpV_p(B59)"
+        },
+        "G59": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H59": {
+          "value": "Saturated vapour heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A60": {
+          "value": "CpL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B60": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C60": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F60": {
+          "value": "=CpL_p(B60)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CpL_p(B60)"
+        },
+        "G60": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H60": {
+          "value": "Saturated liquid heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A61": {
+          "value": "CpV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B61": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C61": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F61": {
+          "value": "=CpV_T(B61)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CpV_T(B61)"
+        },
+        "G61": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H61": {
+          "value": "Saturated vapour heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A62": {
+          "value": "CpL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B62": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C62": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F62": {
+          "value": "=CpL_T(B62)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CpL_T(B62)"
+        },
+        "G62": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H62": {
+          "value": "Saturated liquid heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A63": {
+          "value": "Cp_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B63": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C63": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D63": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E63": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F63": {
+          "value": "=Cp_pT(B63,D63)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cp_pT(B63,D63)"
+        },
+        "G63": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H63": {
+          "value": "Specific isobaric heat capacity as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A64": {
+          "value": "Cp_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B64": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C64": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D64": {
+          "value": 200,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E64": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F64": {
+          "value": "=Cp_ph(B64,D64)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cp_ph(B64,D64)"
+        },
+        "G64": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H64": {
+          "value": "Specific isobaric heat capacity as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A65": {
+          "value": "Cp_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B65": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C65": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D65": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E65": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F65": {
+          "value": "=Cp_ps(B65,D65)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cp_ps(B65,D65)"
+        },
+        "G65": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H65": {
+          "value": "Specific isobaric heat capacity as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A66": {
+          "value": "Specific isochoric heat capacity ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A67": {
+          "value": "CvV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B67": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C67": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F67": {
+          "value": "=CvV_p(B67)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CvV_p(B67)"
+        },
+        "G67": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H67": {
+          "value": "Saturated vapour isochoric heat capacity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A68": {
+          "value": "CvL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B68": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C68": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F68": {
+          "value": "=CvL_p(B68)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CvL_p(B68)"
+        },
+        "G68": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H68": {
+          "value": "Saturated liquid isochoric heat capacity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A69": {
+          "value": "CvV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B69": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C69": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F69": {
+          "value": "=CvV_T(B69)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CvV_T(B69)"
+        },
+        "G69": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H69": {
+          "value": "Saturated vapour isochoric heat capacity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A70": {
+          "value": "CvL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B70": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C70": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F70": {
+          "value": "=CvL_T(B70)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==CvL_T(B70)"
+        },
+        "G70": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H70": {
+          "value": "Saturated liquid isochoric heat capacity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A71": {
+          "value": "Cv_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B71": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C71": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D71": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E71": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F71": {
+          "value": "=Cv_pT(B71,D71)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cv_pT(B71,D71)"
+        },
+        "G71": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H71": {
+          "value": "Specific isochoric heat capacity as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A72": {
+          "value": "Cv_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B72": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C72": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D72": {
+          "value": 200,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E72": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F72": {
+          "value": "=Cv_ph(B72,D72)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cv_ph(B72,D72)"
+        },
+        "G72": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H72": {
+          "value": "Specific isochoric heat capacity as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A73": {
+          "value": "Cv_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B73": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C73": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D73": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E73": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F73": {
+          "value": "=Cv_ps(B73,D73)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==Cv_ps(B73,D73)"
+        },
+        "G73": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H73": {
+          "value": "Specific isochoric heat capacity as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A74": {
+          "value": "Speed of sound ",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A75": {
+          "value": "wV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B75": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C75": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F75": {
+          "value": "=wV_p(B75)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==wV_p(B75)"
+        },
+        "G75": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H75": {
+          "value": "Saturated vapour speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A76": {
+          "value": "wL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B76": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C76": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F76": {
+          "value": "=wL_p(B76)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==wL_p(B76)"
+        },
+        "G76": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H76": {
+          "value": "Saturated liquid speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A77": {
+          "value": "wV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B77": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C77": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F77": {
+          "value": "=wV_T(B77)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==wV_T(B77)"
+        },
+        "G77": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H77": {
+          "value": "Saturated vapour speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A78": {
+          "value": "wL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B78": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C78": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F78": {
+          "value": "=wL_T(B78)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==wL_T(B78)"
+        },
+        "G78": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H78": {
+          "value": "Saturated liquid speed of sound",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A79": {
+          "value": "w_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B79": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C79": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D79": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E79": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F79": {
+          "value": "=w_pT(B79,D79)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==w_pT(B79,D79)"
+        },
+        "G79": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H79": {
+          "value": "Speed of sound as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A80": {
+          "value": "w_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B80": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C80": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D80": {
+          "value": 200,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E80": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F80": {
+          "value": "=w_ph(B80,D80)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==w_ph(B80,D80)"
+        },
+        "G80": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H80": {
+          "value": "Speed of sound as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A81": {
+          "value": "w_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B81": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C81": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D81": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E81": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F81": {
+          "value": "=w_ps(B81,D81)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==w_ps(B81,D81)"
+        },
+        "G81": {
+          "value": "ft/s",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H81": {
+          "value": "Speed of sound as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A82": {
+          "value": "Dynamic Viscosity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A83": {
+          "value": "Viscosity is not part of IAPWS Steam IF97. Equations from \"Revised Release on the IAPWS Formulation 1985 for the Viscosity of Ordinary Water Substance\", 2003 are used.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A84": {
+          "value": "Viscosity in the mixed region (4) is interpolated according to the density. This is not true since it will be two fases.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A85": {
+          "value": "my_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B85": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C85": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D85": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E85": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F85": {
+          "value": "=my_pT(B85,D85)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==my_pT(B85,D85)"
+        },
+        "G85": {
+          "value": "lb/ft/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H85": {
+          "value": "Viscosity as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A86": {
+          "value": "my_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B86": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C86": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D86": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E86": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F86": {
+          "value": "=my_ph(B86,D86)",
+          "data_type": "f",
+          "number_format": "0.0000E+00",
+          "formula": "==my_ph(B86,D86)"
+        },
+        "G86": {
+          "value": "lb/ft/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H86": {
+          "value": "Viscosity as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A87": {
+          "value": "my_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B87": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C87": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D87": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E87": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F87": {
+          "value": "=my_ps(B87,D87)",
+          "data_type": "f",
+          "number_format": "0.0000E+00",
+          "formula": "==my_ps(B87,D87)"
+        },
+        "G87": {
+          "value": "lb/ft/hr",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H87": {
+          "value": "Viscosity as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A88": {
+          "value": "Prandtl",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A89": {
+          "value": "Calcualted as Cp*my/tc",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A90": {
+          "value": "pr_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B90": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C90": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D90": {
+          "value": 200,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E90": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F90": {
+          "value": "=pr_pT(B90,D90)",
+          "data_type": "f",
+          "number_format": "0.0000E+00",
+          "formula": "==pr_pT(B90,D90)"
+        },
+        "G90": {
+          "value": "-",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A91": {
+          "value": "pr_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B91": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C91": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D91": {
+          "value": 2875.4750649489024,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E91": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F91": {
+          "value": "=pr_ph(B91,D91)",
+          "data_type": "f",
+          "number_format": "0.0000E+00",
+          "formula": "==pr_ph(B91,D91)"
+        },
+        "G91": {
+          "value": "-",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A92": {
+          "value": "Thermal Conductivity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A93": {
+          "value": "Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary water substance (IAPWS 1998)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A94": {
+          "value": "tcL_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B94": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C94": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F94": {
+          "value": "=tcL_p(B94)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tcL_p(B94)"
+        },
+        "G94": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H94": {
+          "value": "Saturated vapour thermal conductivity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A95": {
+          "value": "tcV_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B95": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C95": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F95": {
+          "value": "=tcV_p(B95)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tcV_p(B95)"
+        },
+        "G95": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H95": {
+          "value": "Saturated liquid thermal conductivity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A96": {
+          "value": "tcL_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B96": {
+          "value": 25,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C96": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F96": {
+          "value": "=tcL_T(B96)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tcL_T(B96)"
+        },
+        "G96": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H96": {
+          "value": "Saturated vapour thermal conductivity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A97": {
+          "value": "tcV_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B97": {
+          "value": 25,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C97": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F97": {
+          "value": "=tcV_T(B97)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tcV_T(B97)"
+        },
+        "G97": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H97": {
+          "value": "Saturated liquid thermal conductivity",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A98": {
+          "value": "tc_pT",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B98": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C98": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D98": {
+          "value": 25,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E98": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F98": {
+          "value": "=tc_pt(B98,D98)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tc_pt(B98,D98)"
+        },
+        "G98": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H98": {
+          "value": "Thermal conductivity as a function of pressure and temperature.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A99": {
+          "value": "tc_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B99": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C99": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D99": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E99": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F99": {
+          "value": "=tc_ph(B99,D99)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tc_ph(B99,D99)"
+        },
+        "G99": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H99": {
+          "value": "Thermal conductivity as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A100": {
+          "value": "tc_hs",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B100": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C100": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D100": {
+          "value": 0.34,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E100": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F100": {
+          "value": "=tc_hs(B100,D100)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==tc_hs(B100,D100)"
+        },
+        "G100": {
+          "value": "btu/(h*ft*F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H100": {
+          "value": "Thermal conductivity as a function of enthalpy and entropy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A101": {
+          "value": "Surface Tension",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A102": {
+          "value": "IAPWS Release on Surface Tension of Ordinary Water Substance, September 1994",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A103": {
+          "value": "st_T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B103": {
+          "value": 100,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C103": {
+          "value": "deg F",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F103": {
+          "value": "=st_T(B104)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==st_T(B104)"
+        },
+        "G103": {
+          "value": "lb/ft",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H103": {
+          "value": "Surface tension for two phase water/steam as a function of T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A104": {
+          "value": "st_p",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B104": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C104": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F104": {
+          "value": "=st_p(B104)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==st_p(B104)"
+        },
+        "G104": {
+          "value": "lb/ft",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "H104": {
+          "value": "Surface tension for two phase water/steam as a function of T",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A105": {
+          "value": "Vapour fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A106": {
+          "value": "x_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B106": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C106": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D106": {
+          "value": 1000,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E106": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F106": {
+          "value": "=x_ph(B106,D106)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==x_ph(B106,D106)"
+        },
+        "H106": {
+          "value": "Vapour fraction as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A107": {
+          "value": "x_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B107": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C107": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D107": {
+          "value": 4,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E107": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F107": {
+          "value": "=x_ps(B107,D107)",
+          "data_type": "f",
+          "number_format": "General",
+          "formula": "==x_ps(B107,D107)"
+        },
+        "H107": {
+          "value": "Vapour fraction as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A108": {
+          "value": "Vapour Volume Fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A109": {
+          "value": "Observe that vapour volume fraction is very sensitive. Vapour volume is about 1000 times greater than liquid volume and therfore vapour volume fraction",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A110": {
+          "value": "gets close to the accurancy of steam IF-97",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A111": {
+          "value": "vx_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B111": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C111": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D111": {
+          "value": 418,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E111": {
+          "value": "btu/lb",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F111": {
+          "value": "=vx_ph(B111,D111)",
+          "data_type": "f",
+          "number_format": "0.0000",
+          "formula": "==vx_ph(B111,D111)"
+        },
+        "H111": {
+          "value": "Vapour volume fraction as a function of pressure and enthalpy",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A112": {
+          "value": "vx_ps",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "B112": {
+          "value": 1,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "C112": {
+          "value": "psi",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "D112": {
+          "value": 4,
+          "data_type": "n",
+          "number_format": "General"
+        },
+        "E112": {
+          "value": "btu/(lb F)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "F112": {
+          "value": "=vx_ps(B112,D112)",
+          "data_type": "f",
+          "number_format": "0.0000",
+          "formula": "==vx_ps(B112,D112)"
+        },
+        "H112": {
+          "value": "Vapour volume fraction as a function of pressure and entropy.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A114": {
+          "value": "Version history",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A115": {
+          "value": "News in V2.4",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A116": {
+          "value": "* Functions by p,rho inplemented in matlab also.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A117": {
+          "value": "* Many missing ; in matlab causing printouts detected.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A118": {
+          "value": "* OpenOffice version introduced. (Fixed calculation differences in open office and excel)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A119": {
+          "value": "* Matlab error giving varaible undefined in some backwards solutions fixed.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A120": {
+          "value": "News in V2.3",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A121": {
+          "value": "* Option Explicit, gives more efficient calculations.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A122": {
+          "value": "* Extensive testing",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A123": {
+          "value": "* my_ph not defined in region 4.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A124": {
+          "value": "* Problems at region border for h4V_p to adress solver problems at the exact border.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A125": {
+          "value": "* Problem at fast border check in region_ph fixed.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A126": {
+          "value": "News in V2.2",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A127": {
+          "value": "* Extensive testing",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A128": {
+          "value": "* Fixed error in Cp_ph",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A129": {
+          "value": "* Function p_hrho added. (Very good for calcualting pressure when heating a volume with water/steam mixture.)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A130": {
+          "value": "* Fixed error in T_hs return no value for vet region bellow the water saturation line.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A131": {
+          "value": "* Prandtl number added",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A132": {
+          "value": "News in V2.1",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A133": {
+          "value": "* Calling function h_prho",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A134": {
+          "value": "* Fixed problem with Cv reporting NaN in region 5.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A135": {
+          "value": "* Equivivalent to the Matlab version. (Downloadable from www.x-eng.com)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A136": {
+          "value": "News in V2",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A137": {
+          "value": "* Calling functions of h and s added.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A138": {
+          "value": "* Thermal conductivity, Surface tension added",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A139": {
+          "value": "* Calling functions h_px and h_tx added.",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A140": {
+          "value": "* Cp, Cv and w undefined in the mixed region. (Before interpolation with the vapor fraction was used.)",
+          "data_type": "s",
+          "number_format": "General"
+        },
+        "A141": {
+          "value": "* A work sheet \"Properties\" for simple lookups added.",
+          "data_type": "s",
+          "number_format": "General"
+        }
+      },
+      "formulas": {
+        "F9": "==Tsat_p(B9)",
+        "F10": "==T_ph(B10,D10)",
+        "F11": "==T_ps(B11,D11)",
+        "F12": "==T_hs(B12,D12)",
+        "F14": "==psat_t(B14)",
+        "F15": "==p_hs(B15,D15)",
+        "F16": "==p_hrho(B16,D16)",
+        "F18": "==hV_p(B18)",
+        "F19": "==hL_p(B19)",
+        "F20": "==hV_T(B20)",
+        "F21": "==hL_T(B21)",
+        "F22": "==h_pt(B22,D22)",
+        "F23": "==h_ps(B23,D23)",
+        "F24": "==h_px(B24,D24)",
+        "F25": "==h_tx(B25,D25)",
+        "F26": "==h_prho(B26,D26)",
+        "F28": "==vV_p(B28)",
+        "F29": "==vL_p(B29)",
+        "F30": "==vV_T(B30)",
+        "F31": "==vL_T(B31)",
+        "F32": "==v_pT(B32,D32)",
+        "F33": "==v_ph(B33,D33)",
+        "F34": "==v_ps(B34,D34)",
+        "F36": "==rhoV_p(B36)",
+        "F37": "==rhoL_P(B37)",
+        "F38": "==rhoV_T(B38)",
+        "F39": "==rhoL_T(B39)",
+        "F40": "==rho_pT(B40,D40)",
+        "F41": "==rho_ph(B41,D41)",
+        "F42": "==rho_ps(B42,D42)",
+        "F44": "==sV_p(B44)",
+        "F45": "==sL_p(B45)",
+        "F46": "==sV_T(B46)",
+        "F47": "==sL_T(B47)",
+        "F48": "==s_pT(B48,D48)",
+        "D49": "==F22",
+        "F49": "==s_ph(B49,D49)",
+        "F51": "==uV_p(B51)",
+        "F52": "==uL_p(B52)",
+        "F53": "==uV_T(B53)",
+        "F54": "==uL_T(B54)",
+        "F55": "==u_pT(B55,D55)",
+        "F56": "==u_ph(B56,D56)",
+        "F57": "==u_ps(B57,D57)",
+        "F59": "==CpV_p(B59)",
+        "F60": "==CpL_p(B60)",
+        "F61": "==CpV_T(B61)",
+        "F62": "==CpL_T(B62)",
+        "F63": "==Cp_pT(B63,D63)",
+        "F64": "==Cp_ph(B64,D64)",
+        "F65": "==Cp_ps(B65,D65)",
+        "F67": "==CvV_p(B67)",
+        "F68": "==CvL_p(B68)",
+        "F69": "==CvV_T(B69)",
+        "F70": "==CvL_T(B70)",
+        "F71": "==Cv_pT(B71,D71)",
+        "F72": "==Cv_ph(B72,D72)",
+        "F73": "==Cv_ps(B73,D73)",
+        "F75": "==wV_p(B75)",
+        "F76": "==wL_p(B76)",
+        "F77": "==wV_T(B77)",
+        "F78": "==wL_T(B78)",
+        "F79": "==w_pT(B79,D79)",
+        "F80": "==w_ph(B80,D80)",
+        "F81": "==w_ps(B81,D81)",
+        "F85": "==my_pT(B85,D85)",
+        "F86": "==my_ph(B86,D86)",
+        "F87": "==my_ps(B87,D87)",
+        "F90": "==pr_pT(B90,D90)",
+        "F91": "==pr_ph(B91,D91)",
+        "F94": "==tcL_p(B94)",
+        "F95": "==tcV_p(B95)",
+        "F96": "==tcL_T(B96)",
+        "F97": "==tcV_T(B97)",
+        "F98": "==tc_pt(B98,D98)",
+        "F99": "==tc_ph(B99,D99)",
+        "F100": "==tc_hs(B100,D100)",
+        "F103": "==st_T(B104)",
+        "F104": "==st_p(B104)",
+        "F106": "==x_ph(B106,D106)",
+        "F107": "==x_ps(B107,D107)",
+        "F111": "==vx_ph(B111,D111)",
+        "F112": "==vx_ps(B112,D112)"
+      },
+      "merged_cells": []
+    }
+  },
+  "named_ranges": {
+    "Stall": "<openpyxl.workbook.defined_name.DefinedName object>\nParameters:\nname='Stall', comment=None, customMenu=None, description=None, help=None, statusBar=None, localSheetId=None, hidden=None, function=None, vbProcedure=None, xlm=None, functionGroupId=None, shortcutKey=None, publishToServer=None, workbookParameter=None, attr_text=\"'STALL CHART'!$AI$14:$AI$15\""
+  },
+  "formulas": {},
+  "inputs": {},
+  "outputs": {}
+}

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam HX Stall Analysis Tool</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 24px 40px;
+            border-bottom: 3px solid #2d5a8e;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        
+        .help-button {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: white;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .help-button:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-right: 2px solid #e9ecef;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+        
+        .main-content {
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .unit {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 4px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            color: #212529;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .results-table th,
+        .results-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .results-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+            position: sticky;
+            top: 0;
+        }
+        
+        .results-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .stall-indicator {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .stall-yes {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .stall-no {
+            background: #28a745;
+            color: white;
+        }
+        
+        .stall-partial {
+            background: #ffc107;
+            color: #000;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .summary-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        
+        .error {
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .validation-message {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+        
+        .validation-message.error {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .validation-message.warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+        
+        .validation-message h4 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .validation-message .field {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .validation-message .reason {
+            margin-top: 6px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .validation-message .fix {
+            margin-top: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #28a745;
+        }
+        
+        .validation-messages-container {
+            margin-bottom: 20px;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .divider {
+            height: 2px;
+            background: #e9ecef;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                max-height: none;
+                border-right: none;
+                border-bottom: 2px solid #e9ecef;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="position: relative;">
+            <a href="/help.html" class="help-button">User Guide</a>
+            <h1>Steam Heat Exchanger Stall Analysis</h1>
+            <p>Stall Risk Evaluation Tool | Load Turndown Analysis</p>
+        </header>
+        
+        <div class="content">
+            <!-- Sidebar: Input Form -->
+            <div class="sidebar">
+                <h2 style="color: #667eea; margin-bottom: 20px;">Input Parameters</h2>
+                
+                <div class="form-group">
+                    <label for="duty">Duty at 100% Load</label>
+                    <input type="number" id="duty" value="1257060" step="1000">
+                    <div class="unit">BTU/hr</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="area">Surface Area</label>
+                    <input type="number" id="area" value="58.71" step="0.1">
+                    <div class="unit">ft²</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="htc_clean">HTC (Clean)</label>
+                    <input type="number" id="htc_clean" value="140" step="1">
+                    <div class="unit">BTU/(hr·ft²·°F)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="htc_service">HTC (Service/Fouled)</label>
+                    <input type="number" id="htc_service" value="110" step="1">
+                    <div class="unit">BTU/(hr·ft²·°F)</div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="form-group">
+                    <label for="temp_in">Process Inlet Temp</label>
+                    <input type="number" id="temp_in" value="0" step="1">
+                    <div class="unit">°F</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temp_out">Process Outlet Temp</label>
+                    <input type="number" id="temp_out" value="300" step="1">
+                    <div class="unit">°F</div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="form-group">
+                    <label for="bp_max">Backpressure</label>
+                    <input type="number" id="bp_max" value="70" step="1">
+                    <div class="unit">psig</div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" onclick="runAnalysis()">Run Analysis</button>
+                    <button class="btn-secondary" onclick="loadExample()">Load Example</button>
+                </div>
+            </div>
+            
+            <!-- Main Content: Results -->
+            <div class="main-content">
+                <div id="results" style="display: none;">
+                    <!-- Summary Cards -->
+                    <div class="section">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="summary-card">
+                                <h3>Min Safe Load (Clean)</h3>
+                                <div class="value" id="min_load_clean">--</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Min Safe Load (Service)</h3>
+                                <div class="value" id="min_load_service">--</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Combined Temperature & Pressure Chart -->
+                    <div class="section">
+                        <h2>Temperature & Pressure vs Load</h2>
+                        <div class="chart-container" style="height: 500px;">
+                            <canvas id="combinedChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Table -->
+                    <div class="section">
+                        <h2>Detailed Results</h2>
+                        <div style="overflow-x: auto;">
+                            <table class="results-table" id="resultsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Load %</th>
+                                        <th>Duty<br>(BTU/hr)</th>
+                                        <th>T_steam Clean<br>(°F)</th>
+                                        <th>P_steam Clean<br>(psig)</th>
+                                        <th>Flow Clean<br>(lb/hr)</th>
+                                        <th>T_steam Service<br>(°F)</th>
+                                        <th>P_steam Service<br>(psig)</th>
+                                        <th>Flow Service<br>(lb/hr)</th>
+                                        <th>Stall?</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="loading" class="loading" style="display: none;">
+                    Running analysis...
+                </div>
+                
+                <div id="error" class="error" style="display: none;"></div>
+                
+                <div id="welcome" class="info">
+                    <h3 style="margin-bottom: 10px;">Welcome to the Steam HX Stall Analysis Tool</h3>
+                    <p>Enter your heat exchanger parameters on the left and click <strong>Run Analysis</strong> to evaluate stall risk across load turndown.</p>
+                    <p style="margin-top: 10px;">Click <strong>Load Example</strong> to load default values for testing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let combinedChart;
+        
+        // Load example data
+        async function loadExample() {
+            try {
+                const response = await fetch('/api/example');
+                const data = await response.json();
+                
+                document.getElementById('duty').value = data.duty_100pct;
+                document.getElementById('area').value = data.surface_area;
+                document.getElementById('htc_clean').value = data.htc_clean;
+                document.getElementById('htc_service').value = data.htc_service;
+                document.getElementById('temp_in').value = data.process_inlet_temp;
+                document.getElementById('temp_out').value = data.process_outlet_temp;
+                document.getElementById('bp_max').value = data.backpressure_max;
+                
+                showInfo('Example data loaded successfully!');
+            } catch (error) {
+                showError('Failed to load example data');
+            }
+        }
+        
+        // Run analysis
+        async function runAnalysis() {
+            // Hide previous results/errors
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Collect inputs
+            const inputs = {
+                duty_100pct: parseFloat(document.getElementById('duty').value),
+                surface_area: parseFloat(document.getElementById('area').value),
+                htc_clean: parseFloat(document.getElementById('htc_clean').value),
+                htc_service: parseFloat(document.getElementById('htc_service').value),
+                process_inlet_temp: parseFloat(document.getElementById('temp_in').value),
+                process_outlet_temp: parseFloat(document.getElementById('temp_out').value),
+                backpressure_max: parseFloat(document.getElementById('bp_max').value),
+                backpressure_min: 0,  // Fixed value
+                max_feed_rate: 1000,  // Fixed value, not used in calculations
+                load_percentages: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+            };
+            
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(inputs)
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    // Handle structured validation errors
+                    if (error.detail && typeof error.detail === 'object') {
+                        showValidationErrors(error.detail);
+                    } else {
+                        throw new Error(error.detail || 'Analysis failed');
+                    }
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                // Display any warnings even if calculation succeeded
+                if (data.validation_warnings && data.validation_warnings.length > 0) {
+                    showValidationWarnings(data.validation_warnings);
+                }
+                
+                displayResults(data);
+                
+            } catch (error) {
+                if (error.message && !error.message.includes('detail')) {
+                    showError(error.message);
+                }
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        // Display results
+        function displayResults(data) {
+            document.getElementById('results').style.display = 'block';
+            
+            // Update summary cards
+            document.getElementById('min_load_clean').textContent = 
+                data.min_load_no_stall_clean !== null ? data.min_load_no_stall_clean + '%' : 'N/A';
+            document.getElementById('min_load_service').textContent = 
+                data.min_load_no_stall_service !== null ? data.min_load_no_stall_service + '%' : 'N/A';
+            
+            // Prepare data for charts
+            const loads = data.load_points.map(lp => lp.load_pct);
+            const tempClean = data.load_points.map(lp => lp.steam_temp_clean);
+            const tempService = data.load_points.map(lp => lp.steam_temp_service);
+            const pressureClean = data.load_points.map(lp => lp.steam_pressure_clean);
+            const pressureService = data.load_points.map(lp => lp.steam_pressure_service);
+            const flowClean = data.load_points.map(lp => lp.steam_flow_clean);
+            const flowService = data.load_points.map(lp => lp.steam_flow_service);
+            
+            // Create charts
+            createCombinedChart(loads, tempClean, tempService, pressureClean, pressureService, data);
+            
+            // Populate table
+            populateTable(data.load_points);
+        }
+        
+        // Create combined temperature and pressure chart (dual y-axis)
+        function createCombinedChart(loads, tempClean, tempService, pressureClean, pressureService, data) {
+            const ctx = document.getElementById('combinedChart').getContext('2d');
+            
+            if (combinedChart) combinedChart.destroy();
+            
+            // Calculate axis ranges to align temperature and pressure visually
+            const allTemps = [...tempClean, ...tempService, data.t_sat_bp_max, data.inputs.process_outlet_temp];
+            const allPressures = [...pressureClean, ...pressureService, data.inputs.backpressure_max];
+            
+            // Add padding below minimum values (10% of range)
+            const tempMinRaw = Math.min(...allTemps);
+            const tempMaxRaw = Math.max(...allTemps);
+            const tempRange = tempMaxRaw - tempMinRaw;
+            const tempMin = Math.floor((tempMinRaw - tempRange * 0.1) / 10) * 10;
+            const tempMax = Math.ceil(tempMaxRaw / 10) * 10;
+            
+            const pressureMinRaw = Math.min(...allPressures);
+            const pressureMaxRaw = Math.max(...allPressures);
+            const pressureRange = pressureMaxRaw - pressureMinRaw;
+            const pressureMin = Math.floor((pressureMinRaw - pressureRange * 0.1) / 10) * 10;
+            const pressureMax = Math.ceil(pressureMaxRaw / 10) * 10;
+            
+            combinedChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: loads,
+                    datasets: [
+                        // Single line for Clean condition (temp on left, pressure on right align)
+                        {
+                            label: 'Clean Condition',
+                            data: tempClean,
+                            borderColor: '#28a745',
+                            backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y-temp'
+                        },
+                        // Single line for Service condition (temp on left, pressure on right align)
+                        {
+                            label: 'Service Condition',
+                            data: tempService,
+                            borderColor: '#ffc107',
+                            backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y-temp'
+                        },
+                        // Reference lines
+                        {
+                            label: 'Backpressure',
+                            data: loads.map(() => data.t_sat_bp_max),
+                            borderColor: '#dc3545',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            yAxisID: 'y-temp'
+                        },
+                        {
+                            label: 'Process Outlet Temp',
+                            data: loads.map(() => data.inputs.process_outlet_temp),
+                            borderColor: '#6c757d',
+                            borderWidth: 2,
+                            borderDash: [10, 5],
+                            pointRadius: 0,
+                            yAxisID: 'y-temp'
+                        },
+                        // Pressure values (aligned to match temperature visually)
+                        {
+                            label: 'Clean Pressure',
+                            data: pressureClean,
+                            borderColor: '#28a745',
+                            borderWidth: 0,
+                            pointRadius: 0,
+                            yAxisID: 'y-pressure',
+                            hidden: true // Hidden by default, shows in tooltip
+                        },
+                        {
+                            label: 'Service Pressure',
+                            data: pressureService,
+                            borderColor: '#ffc107',
+                            borderWidth: 0,
+                            pointRadius: 0,
+                            yAxisID: 'y-pressure',
+                            hidden: true // Hidden by default, shows in tooltip
+                        },
+                        /*
+                                                {
+                                                    label: 'Backpressure (Max)',
+                                                    data: loads.map(() => data.inputs.backpressure_max),
+                                                    borderColor: '#dc3545',
+                                                    borderWidth: 0,
+                                                    pointRadius: 0,
+                                                    yAxisID: 'y-pressure',
+                                                    hidden: true // Hidden by default, shows in tooltip
+                                                }
+                        */
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,  // Use line style instead of box
+                                pointStyle: 'line',    // Show as line
+                                boxWidth: 60,          // Width of the line sample (larger)
+                                boxHeight: 4,          // Height of the line (thicker)
+                                padding: 18,           // More spacing between items
+                                font: {
+                                    size: 14,          // Larger text
+                                    weight: '500'      // Slightly bolder
+                                },
+                                filter: function(item) {
+                                    // Only show visible datasets in legend
+                                    return !item.text.includes('Pressure') || item.text.includes('Backpressure Sat');
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const index = context.dataIndex;
+                                    const datasetLabel = context.dataset.label;
+                                    
+                                    // For Clean Condition, show both temp and pressure
+                                    if (datasetLabel === 'Clean Condition') {
+                                        const temp = tempClean[index].toFixed(1);
+                                        const pressure = pressureClean[index].toFixed(1);
+                                        return `Clean: ${temp}°F / ${pressure} psig`;
+                                    }
+                                    // For Service Condition, show both temp and pressure
+                                    else if (datasetLabel === 'Service Condition') {
+                                        const temp = tempService[index].toFixed(1);
+                                        const pressure = pressureService[index].toFixed(1);
+                                        return `Service: ${temp}°F / ${pressure} psig`;
+                                    }
+                                    // For reference lines
+                                    else if (datasetLabel === 'Backpressure Sat Temp') {
+                                        return `BP Sat: ${data.t_sat_bp_max.toFixed(1)}°F / ${data.inputs.backpressure_max.toFixed(1)} psig`;
+                                    }
+                                    else if (datasetLabel === 'Process Outlet Temp') {
+                                        return `Process Outlet: ${data.inputs.process_outlet_temp.toFixed(1)}°F`;
+                                    }
+                                    
+                                    return context.dataset.label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Load (%)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        'y-temp': {
+                            type: 'linear',
+                            position: 'left',
+                            min: tempMin,
+                            max: tempMax,
+                            title: {
+                                display: true,
+                                text: 'Temperature (°F)',
+                                color: '#28a745',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                color: '#28a745'
+                            }
+                        },
+                        'y-pressure': {
+                            type: 'linear',
+                            position: 'right',
+                            min: pressureMin,
+                            max: pressureMax,
+                            title: {
+                                display: true,
+                                text: 'Pressure (psig)',
+                                color: '#007bff',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                color: '#007bff'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Populate results table
+        function populateTable(loadPoints) {
+            const tbody = document.getElementById('resultsTableBody');
+            tbody.innerHTML = '';
+            
+            loadPoints.forEach(lp => {
+                const row = tbody.insertRow();
+                
+                // Determine stall status
+                let stallStatus = 'No';
+                let stallClass = 'stall-no';
+                if (lp.stall_clean && lp.stall_service) {
+                    stallStatus = 'Both';
+                    stallClass = 'stall-yes';
+                } else if (lp.stall_service) {
+                    stallStatus = 'Service';
+                    stallClass = 'stall-partial';
+                } else if (lp.stall_clean) {
+                    stallStatus = 'Clean';
+                    stallClass = 'stall-partial';
+                }
+                
+                row.innerHTML = `
+                    <td><strong>${lp.load_pct}%</strong></td>
+                    <td>${lp.duty.toFixed(0)}</td>
+                    <td>${lp.steam_temp_clean.toFixed(1)}</td>
+                    <td>${lp.steam_pressure_clean.toFixed(1)}</td>
+                    <td>${lp.steam_flow_clean.toFixed(0)}</td>
+                    <td>${lp.steam_temp_service.toFixed(1)}</td>
+                    <td>${lp.steam_pressure_service.toFixed(1)}</td>
+                    <td>${lp.steam_flow_service.toFixed(0)}</td>
+                    <td><span class="stall-indicator ${stallClass}">${stallStatus}</span></td>
+                `;
+            });
+        }
+        
+        // Show validation errors (blocking)
+        function showValidationErrors(detail) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.className = 'validation-messages-container';
+            errorDiv.style.display = 'block';
+            
+            let html = '';
+            
+            // Show errors with prominent, specific messages
+            if (detail.errors && detail.errors.length > 0) {
+                if (detail.errors.length === 1) {
+                    // Single error - make it very prominent
+                    const err = detail.errors[0];
+                    html += `
+                        <div class="validation-message error" style="border-left-width: 6px;">
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #721c24;">ERROR: ${err.message}</h3>
+                            <div style="font-size: 0.95rem; line-height: 1.6;">
+                                <div style="margin-bottom: 8px;"><strong>Field:</strong> <span style="color: #495057; font-weight: 600;">${err.field}</span></div>
+                                <div style="margin-bottom: 8px;"><strong>Reason:</strong> ${err.reason}</div>
+                                <div style="color: #28a745; font-weight: 500;"><strong>Solution:</strong> ${err.suggested_fix}</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Multiple errors
+                    html += `<h3 style="margin-bottom: 15px; color: #721c24; font-size: 1.2rem;">${detail.errors.length} Input Error${detail.errors.length > 1 ? 's' : ''} Found</h3>`;
+                    html += '<p style="margin-bottom: 15px; color: #721c24;">Please correct the following issues:</p>';
+                    detail.errors.forEach((err, index) => {
+                        html += `
+                            <div class="validation-message error" style="border-left-width: 6px;">
+                                <h4 style="font-size: 1.05rem; margin-bottom: 8px;">${index + 1}. ${err.message}</h4>
+                                <div style="font-size: 0.9rem; line-height: 1.6;">
+                                    <div style="margin-bottom: 6px;"><strong>Field:</strong> <span style="color: #495057; font-weight: 600;">${err.field}</span></div>
+                                    <div style="margin-bottom: 6px;"><strong>Reason:</strong> ${err.reason}</div>
+                                    <div style="color: #28a745; font-weight: 500;"><strong>Solution:</strong> ${err.suggested_fix}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+            }
+            
+            // Also show warnings if present
+            if (detail.warnings && detail.warnings.length > 0) {
+                if (detail.errors && detail.errors.length > 0) {
+                    html += '<h3 style="margin: 25px 0 15px 0; color: #856404; font-size: 1.1rem;">Additional Warnings</h3>';
+                } else {
+                    html += '<h3 style="margin-bottom: 15px; color: #856404; font-size: 1.1rem;">Input Warnings</h3>';
+                }
+                detail.warnings.forEach((warn, index) => {
+                    html += `
+                        <div class="validation-message warning">
+                            <h4 style="font-size: 1rem; margin-bottom: 8px;">${warn.message}</h4>
+                            <div style="font-size: 0.9rem; line-height: 1.6;">
+                                <div style="margin-bottom: 6px;"><strong>Field:</strong> <span style="font-weight: 600;">${warn.field}</span></div>
+                                <div style="margin-bottom: 6px;"><strong>Note:</strong> ${warn.reason}</div>
+                                <div style="color: #28a745; font-weight: 500;"><strong>Suggestion:</strong> ${warn.suggested_fix}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            errorDiv.innerHTML = html;
+        }
+        
+        // Show validation warnings (non-blocking, with results)
+        function showValidationWarnings(warnings) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.className = 'validation-messages-container';
+            errorDiv.style.display = 'block';
+            
+            let html = '<h3 style="margin-bottom: 15px; color: #856404;">Input Warnings</h3>';
+            html += '<p style="margin-bottom: 15px;">The analysis completed successfully, but please review these warnings about your inputs:</p>';
+            
+            warnings.forEach(warn => {
+                html += `
+                    <div class="validation-message warning">
+                        <h4>WARNING: ${warn.message}</h4>
+                        <div class="field">Field: ${warn.field}</div>
+                        <div class="reason"><strong>Note:</strong> ${warn.reason}</div>
+                        <div class="fix"><strong>Suggestion:</strong> ${warn.suggested_fix}</div>
+                    </div>
+                `;
+            });
+            
+            errorDiv.innerHTML = html;
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.className = 'error';
+            errorDiv.textContent = 'Error: ' + message;
+            errorDiv.style.display = 'block';
+        }
+        
+        // Show info message
+        function showInfo(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.className = 'info';
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+                errorDiv.className = 'error';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

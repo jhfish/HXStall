@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - Steam HX Stall Analysis Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 24px 40px;
+            border-bottom: 3px solid #2d5a8e;
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .back-button {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .content {
+            padding: 40px;
+            line-height: 1.8;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        h4 {
+            color: #495057;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #e83e8c;
+        }
+        
+        .parameter-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .parameter-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-button">← Back to Tool</a>
+            <h1>User Guide</h1>
+            <p>Steam Heat Exchanger Stall Analysis Tool</p>
+        </header>
+        
+        <div class="content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <a href="#purpose">1. Purpose of the Tool</a>
+                <a href="#what-it-does">2. What the Tool Does</a>
+                <a href="#physics">3. Governing Physics</a>
+                <a href="#how-to-use">4. How to Use the Tool</a>
+                <a href="#inputs">5. Input Parameters</a>
+                <a href="#validation">6. Input Bounds and Validation</a>
+                <a href="#assumptions">7. Assumptions</a>
+                <a href="#limitations">8. Limitations</a>
+                <a href="#use-cases">9. Appropriate Use Cases</a>
+            </div>
+
+            <h2 id="purpose">1. Purpose of the Tool</h2>
+            
+            <p>This tool evaluates <strong>stall risk in steam-heated heat exchangers</strong> operating with condensing steam. It replicates the logic of the Excel workbook <code>Stall Chart.xlsm</code> and follows the Spirax-Sarco stall chart methodology, using validated IF-97 steam properties.</p>
+            
+            <div class="highlight-box">
+                <h4>The Core Question</h4>
+                <p style="margin-bottom: 0;"><strong>At what operating loads will the heat exchanger lose sufficient steam pressure to drain condensate against the return backpressure (i.e., stall)?</strong></p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Important: What This Tool Is NOT</h4>
+                <p style="margin-bottom: 0;">This is <strong>not</strong> a full heat-exchanger design or rating tool (HTRI / Aspen EDR). It is a <strong>stall and condensate drainage screening tool</strong> intended for concept design, troubleshooting, and justification of pump-assisted condensate removal.</p>
+            </div>
+
+            <h2 id="what-it-does">2. What the Tool Does (At a High Level)</h2>
+            
+            <p>For a steam-heated exchanger, the tool:</p>
+            
+            <ol>
+                <li>Uses heat-transfer fundamentals to determine the <strong>required steam saturation temperature</strong> at each load</li>
+                <li>Converts that temperature to <strong>required steam pressure</strong> using IF-97 properties</li>
+                <li>Compares required steam pressure to <strong>condensate return backpressure</strong></li>
+                <li>Identifies operating regions where:
+                    <ul>
+                        <li>Condensate will drain normally, or</li>
+                        <li>Stall and flooding are expected</li>
+                    </ul>
+                </li>
+                <li>Repeats this analysis across <strong>turndown (load %)</strong></li>
+                <li>Performs the analysis for both:
+                    <ul>
+                        <li><strong>Clean exchanger condition</strong>, and</li>
+                        <li><strong>Service / fouled exchanger condition</strong></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2 id="physics">3. Governing Physics</h2>
+            
+            <p>The tool assumes <strong>condensing steam at constant temperature</strong> heating a single-phase process fluid.</p>
+            
+            <h3>Heat Transfer</h3>
+            <p><code>Q = U × A × ΔT_lm</code></p>
+            
+            <h3>Stall Criterion</h3>
+            <p>Stall is predicted when:</p>
+            <p><code>P_steam,HX ≤ P_backpressure</code></p>
+            <p>or equivalently:</p>
+            <p><code>T_s ≤ T_sat(P_backpressure)</code></p>
+
+            <h2 id="how-to-use">4. How to Use the Tool (Step-by-Step)</h2>
+            
+            <div class="success-box">
+                <h3>Step 1 — Enter Design / Operating Inputs</h3>
+                <p>Provide the required inputs on the left sidebar (described in Section 5 below).</p>
+                
+                <h3>Step 2 — Click "Analyze"</h3>
+                <p>The tool will generate temperature and pressure curves across load (% capacity).</p>
+                
+                <h3>Step 3 — Review the Chart</h3>
+                <p>Look at the curves showing:
+                    <ul>
+                        <li>Required steam temperature (clean & service)</li>
+                        <li>Required steam pressure (clean & service)</li>
+                        <li>Condensate backpressure limit</li>
+                    </ul>
+                </p>
+                
+                <h3>Step 4 — Identify Stall Regions</h3>
+                <p>At any load where the required steam pressure drops to or below the backpressure limit, stall is expected. Check the "Min Safe Load" summary cards.</p>
+                
+                <h3>Step 5 — Interpret Results</h3>
+                <p>Use the results to:
+                    <ul>
+                        <li>Identify minimum safe operating load</li>
+                        <li>Compare clean vs fouled behavior</li>
+                        <li>Justify pump-trap or pressure-powered pump solutions</li>
+                        <li>Understand why stall may appear during turndown or fouling</li>
+                    </ul>
+                </p>
+            </div>
+
+            <h2 id="inputs">5. Input Parameters (What Each Input Represents)</h2>
+            
+            <div class="parameter-card">
+                <h4>5.1 Duty at 100% Load</h4>
+                <p><strong>Description:</strong> Total heat duty required at full load.</p>
+                <p><strong>Units:</strong> BTU/hr</p>
+                <p><strong>Role:</strong> Governs required steam temperature and pressure. Duty is scaled linearly with % load.</p>
+                <p><strong>Example:</strong> 1,257,060 BTU/hr</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.2 Heat Transfer Surface Area</h4>
+                <p><strong>Description:</strong> Effective heat transfer area of the exchanger.</p>
+                <p><strong>Units:</strong> ft²</p>
+                <p><strong>Role:</strong> Larger area reduces required steam temperature. Small area increases stall risk.</p>
+                <p><strong>Example:</strong> 58.71 ft²</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.3 Overall Heat Transfer Coefficient — Clean</h4>
+                <p><strong>Description:</strong> Overall heat transfer coefficient for a clean exchanger.</p>
+                <p><strong>Units:</strong> BTU/(hr·ft²·°F)</p>
+                <p><strong>Role:</strong> Defines best-case (new) performance.</p>
+                <p><strong>Typical Range:</strong> 100-200 for shell-and-tube with condensing steam</p>
+                <p><strong>Example:</strong> 140 BTU/(hr·ft²·°F)</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.4 Overall Heat Transfer Coefficient — Service / Fouled</h4>
+                <p><strong>Description:</strong> Overall heat transfer coefficient under fouled or aged conditions.</p>
+                <p><strong>Units:</strong> BTU/(hr·ft²·°F)</p>
+                <p><strong>Role:</strong> Shows how fouling shifts stall behavior. Typically less than clean U.</p>
+                <p><strong>Typical Range:</strong> 70-90% of clean U</p>
+                <p><strong>Example:</strong> 110 BTU/(hr·ft²·°F)</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.5 Process Inlet Temperature (Ti)</h4>
+                <p><strong>Description:</strong> Temperature of the process fluid entering the exchanger.</p>
+                <p><strong>Units:</strong> °F</p>
+                <p><strong>Role:</strong> Determines cold-end temperature difference. Higher Ti reduces driving temperature difference and increases stall risk.</p>
+                <p><strong>Example:</strong> 0°F</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.6 Process Outlet Temperature (To)</h4>
+                <p><strong>Description:</strong> Target temperature of the process fluid leaving the exchanger.</p>
+                <p><strong>Units:</strong> °F</p>
+                <p><strong>Role:</strong> Defines process thermal requirement. Must be greater than Ti.</p>
+                <p><strong>Example:</strong> 300°F</p>
+            </div>
+            
+            <div class="parameter-card">
+                <h4>5.7 Condensate Backpressure (Maximum)</h4>
+                <p><strong>Description:</strong> Maximum pressure in the condensate return system.</p>
+                <p><strong>Units:</strong> psig</p>
+                <p><strong>Role:</strong> Sets the stall threshold. Higher backpressure increases stall likelihood.</p>
+                <p><strong>Typical Range:</strong> 0-100 psig</p>
+                <p><strong>Example:</strong> 70 psig</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>What Inputs Do NOT Affect the Stall Outcome</h4>
+                <p>The following quantities do <strong>not</strong> independently change the stall result:</p>
+                <ul>
+                    <li>Process flow rate</li>
+                    <li>Max feed rate</li>
+                    <li>Steam flow rate</li>
+                    <li>Condensate flow rate</li>
+                    <li>Control valve position</li>
+                </ul>
+                <p style="margin-bottom: 0;">These quantities are <strong>derived or interpretive</strong>, not governing. The model is <strong>duty-driven</strong>, not flow-driven.</p>
+            </div>
+
+            <h2 id="validation">6. Input Bounds and Validation</h2>
+            
+            <p>To ensure numerical stability and physical validity, the tool enforces the following:</p>
+            
+            <h3>Required Conditions (Errors)</h3>
+            <ul>
+                <li>Duty > 0</li>
+                <li>Area > 0</li>
+                <li>U_clean > 0, U_service > 0</li>
+                <li>To > Ti</li>
+                <li>Backpressure ≥ 0 psig</li>
+                <li>Temperatures within -100°F to 700°F</li>
+            </ul>
+            
+            <h3>Numerical Guardrails</h3>
+            <ul>
+                <li>Z must remain < 0.999</li>
+                <li>Required steam temperature must remain within saturation range (~32°F–705°F)</li>
+            </ul>
+            
+            <p>If violated, the tool explains:</p>
+            <ul>
+                <li>Which input caused failure</li>
+                <li>At what load the failure occurred</li>
+                <li>Why the result is physically invalid</li>
+                <li>How to fix the issue</li>
+            </ul>
+
+            <h2 id="assumptions">7. Assumptions of the Tool</h2>
+            
+            <ol>
+                <li>Condensing steam at saturation temperature</li>
+                <li>Single-phase process fluid (liquid)</li>
+                <li>Fixed duty basis across load</li>
+                <li>Constant overall heat transfer coefficient (clean & service)</li>
+                <li>Negligible pressure drop within the exchanger</li>
+                <li>Steady-state operation</li>
+            </ol>
+            
+            <p>These assumptions are consistent with standard stall-chart methodology.</p>
+
+            <h2 id="limitations">8. Limitations</h2>
+            
+            <ul>
+                <li>Not a heat exchanger sizing or rating tool</li>
+                <li>Does not model exchanger geometry</li>
+                <li>Does not model pressure drop in shell or tubes</li>
+                <li>Does not account for subcooling of condensate</li>
+                <li>Does not capture dynamic or transient effects</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p style="margin-bottom: 0;"><strong>For exchanger design or guaranteed performance, use HTRI or Aspen EDR.</strong></p>
+            </div>
+
+            <h2 id="use-cases">9. Appropriate Use Cases</h2>
+            
+            <p>This tool is well-suited for:</p>
+            
+            <ul>
+                <li>Stall risk screening</li>
+                <li>Turndown analysis</li>
+                <li>Troubleshooting flooded exchangers</li>
+                <li>Condensate system design</li>
+                <li>Justifying pump-trap or pressure-powered pump solutions</li>
+                <li>Early-phase EPC and concept studies</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h4>Key Takeaway</h4>
+                <p><strong>Stall is governed by steam pressure versus condensate backpressure.</strong></p>
+                <p style="margin-bottom: 0;">This tool quantifies how duty, heat-transfer capability, and process temperatures determine whether condensate can physically drain. Used correctly, it provides clear, defensible insight into when and why stall will occur.</p>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                <a href="/" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">← Return to Analysis Tool</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
