@@ -361,8 +361,26 @@
                 <h2 style="color: #667eea; margin-bottom: 20px;">Input Parameters</h2>
                 
                 <div class="form-group">
+                    <label for="operating_mode">Operating Mode</label>
+                    <select id="operating_mode" onchange="updateInputsForMode()">
+                        <option value="mode1">Variable Load (Duty Turndown)</option>
+                        <option value="mode3">Variable Outlet Temperature</option>
+                    </select>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <!-- Mode 1 Specific Inputs -->
+                <div class="form-group mode1-input">
                     <label for="duty">Duty at 100% Load</label>
                     <input type="number" id="duty" value="1257060" step="1000">
+                    <div class="unit">BTU/hr</div>
+                </div>
+                
+                <!-- Mode 3 Specific Inputs -->
+                <div class="form-group mode3-input" style="display: none;">
+                    <label for="duty_ref">Reference Duty (Constant)</label>
+                    <input type="number" id="duty_ref" value="1257060" step="1000">
                     <div class="unit">BTU/hr</div>
                 </div>
                 
@@ -392,10 +410,30 @@
                     <div class="unit">°F</div>
                 </div>
                 
-                <div class="form-group">
+                <!-- Mode 1: Single outlet temp -->
+                <div class="form-group mode1-input">
                     <label for="temp_out">Process Outlet Temp</label>
                     <input type="number" id="temp_out" value="300" step="1">
                     <div class="unit">°F</div>
+                </div>
+                
+                <!-- Mode 3: Outlet temp range -->
+                <div class="form-group mode3-input" style="display: none;">
+                    <label for="temp_out_min">Min Outlet Temp</label>
+                    <input type="number" id="temp_out_min" value="100" step="1">
+                    <div class="unit">°F</div>
+                </div>
+                
+                <div class="form-group mode3-input" style="display: none;">
+                    <label for="temp_out_max">Max Outlet Temp</label>
+                    <input type="number" id="temp_out_max" value="300" step="1">
+                    <div class="unit">°F</div>
+                </div>
+                
+                <div class="form-group mode3-input" style="display: none;">
+                    <label for="num_points">Number of Points</label>
+                    <input type="number" id="num_points" value="25" step="1" min="5" max="100">
+                    <div class="unit">points</div>
                 </div>
                 
                 <div class="divider"></div>
@@ -431,7 +469,7 @@
                     
                     <!-- Combined Temperature & Pressure Chart -->
                     <div class="section">
-                        <h2>Temperature & Pressure vs Load</h2>
+                        <h2 id="chartTitle">Temperature & Pressure vs Load</h2>
                         <div class="chart-container" style="height: 500px;">
                             <canvas id="combinedChart"></canvas>
                         </div>
@@ -479,6 +517,29 @@
     
     <script>
         let combinedChart;
+        let currentMode = 'mode1';
+        
+        // Update input fields visibility based on selected mode
+        function updateInputsForMode() {
+            const mode = document.getElementById('operating_mode').value;
+            currentMode = mode;
+            
+            // Hide all mode-specific inputs
+            document.querySelectorAll('.mode1-input').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.mode3-input').forEach(el => el.style.display = 'none');
+            
+            // Show inputs for selected mode
+            if (mode === 'mode1') {
+                document.querySelectorAll('.mode1-input').forEach(el => el.style.display = 'block');
+            } else if (mode === 'mode3') {
+                document.querySelectorAll('.mode3-input').forEach(el => el.style.display = 'block');
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateInputsForMode();
+        });
         
         // Load example data
         async function loadExample() {
@@ -508,19 +569,31 @@
             document.getElementById('welcome').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             
-            // Collect inputs
-            const inputs = {
-                duty_100pct: parseFloat(document.getElementById('duty').value),
+            // Get current mode
+            const mode = document.getElementById('operating_mode').value;
+            
+            // Collect inputs based on mode
+            let inputs = {
+                operating_mode: mode,
                 surface_area: parseFloat(document.getElementById('area').value),
                 htc_clean: parseFloat(document.getElementById('htc_clean').value),
                 htc_service: parseFloat(document.getElementById('htc_service').value),
                 process_inlet_temp: parseFloat(document.getElementById('temp_in').value),
-                process_outlet_temp: parseFloat(document.getElementById('temp_out').value),
                 backpressure_max: parseFloat(document.getElementById('bp_max').value),
                 backpressure_min: 0,  // Fixed value
-                max_feed_rate: 1000,  // Fixed value, not used in calculations
-                load_percentages: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+                max_feed_rate: 1000  // Fixed value, not used in calculations
             };
+            
+            if (mode === 'mode1') {
+                inputs.duty_100pct = parseFloat(document.getElementById('duty').value);
+                inputs.process_outlet_temp = parseFloat(document.getElementById('temp_out').value);
+                inputs.load_percentages = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+            } else if (mode === 'mode3') {
+                inputs.duty_ref = parseFloat(document.getElementById('duty_ref').value);
+                inputs.temp_out_min = parseFloat(document.getElementById('temp_out_min').value);
+                inputs.temp_out_max = parseFloat(document.getElementById('temp_out_max').value);
+                inputs.num_points = parseInt(document.getElementById('num_points').value);
+            }
             
             try {
                 const response = await fetch('/api/analyze', {
@@ -564,36 +637,76 @@
         function displayResults(data) {
             document.getElementById('results').style.display = 'block';
             
-            // Update summary cards
-            document.getElementById('min_load_clean').textContent = 
-                data.min_load_no_stall_clean !== null ? data.min_load_no_stall_clean + '%' : 'N/A';
-            document.getElementById('min_load_service').textContent = 
-                data.min_load_no_stall_service !== null ? data.min_load_no_stall_service + '%' : 'N/A';
+            const mode = data.operating_mode || currentMode;
             
-            // Prepare data for charts
-            const loads = data.load_points.map(lp => lp.load_pct);
-            const tempClean = data.load_points.map(lp => lp.steam_temp_clean);
-            const tempService = data.load_points.map(lp => lp.steam_temp_service);
-            const pressureClean = data.load_points.map(lp => lp.steam_pressure_clean);
-            const pressureService = data.load_points.map(lp => lp.steam_pressure_service);
-            const flowClean = data.load_points.map(lp => lp.steam_flow_clean);
-            const flowService = data.load_points.map(lp => lp.steam_flow_service);
-            
-            // Create charts
-            createCombinedChart(loads, tempClean, tempService, pressureClean, pressureService, data);
-            
-            // Populate table
-            populateTable(data.load_points);
+            if (mode === 'mode1') {
+                // Update chart title for Mode 1
+                document.getElementById('chartTitle').textContent = 'Temperature & Pressure vs Load';
+                
+                // Update summary card titles for Mode 1
+                document.querySelector('#min_load_clean').parentElement.querySelector('h3').textContent = 'Min Safe Load (Clean)';
+                document.querySelector('#min_load_service').parentElement.querySelector('h3').textContent = 'Min Safe Load (Service)';
+                
+                // Update summary cards for Mode 1
+                document.getElementById('min_load_clean').textContent = 
+                    data.min_load_no_stall_clean !== null ? data.min_load_no_stall_clean.toFixed(1) + '%' : 'Stall at All Loads';
+                document.getElementById('min_load_service').textContent = 
+                    data.min_load_no_stall_service !== null ? data.min_load_no_stall_service.toFixed(1) + '%' : 'Stall at All Loads';
+                
+                // Prepare data for charts
+                const loads = data.load_points.map(lp => lp.load_pct);
+                const tempClean = data.load_points.map(lp => lp.steam_temp_clean);
+                const tempService = data.load_points.map(lp => lp.steam_temp_service);
+                const pressureClean = data.load_points.map(lp => lp.steam_pressure_clean);
+                const pressureService = data.load_points.map(lp => lp.steam_pressure_service);
+                
+                // Create charts
+                createCombinedChart(loads, tempClean, tempService, pressureClean, pressureService, data, 'Load (%)');
+                
+                // Populate table
+                populateTable(data.load_points, mode);
+            } else if (mode === 'mode3') {
+                // Update chart title for Mode 3
+                document.getElementById('chartTitle').textContent = 'Steam Temperature & Pressure Vs. Process Outlet Temperature';
+                
+                // Update summary card titles for Mode 3
+                document.querySelector('#min_load_clean').parentElement.querySelector('h3').textContent = 'Min Safe Outlet Temp (Clean)';
+                document.querySelector('#min_load_service').parentElement.querySelector('h3').textContent = 'Min Safe Outlet Temp (Service)';
+                
+                // Update summary cards for Mode 3 (show interpolated crossing point)
+                document.getElementById('min_load_clean').textContent = 
+                    data.min_load_no_stall_clean !== null ? data.min_load_no_stall_clean.toFixed(1) + '°F' : 'Stall at All Temps';
+                document.getElementById('min_load_service').textContent = 
+                    data.min_load_no_stall_service !== null ? data.min_load_no_stall_service.toFixed(1) + '°F' : 'Stall at All Temps';
+                
+                // Prepare data for charts
+                const outletTemps = data.load_points.map(lp => lp.outlet_temp);
+                const tempClean = data.load_points.map(lp => lp.steam_temp_clean);
+                const tempService = data.load_points.map(lp => lp.steam_temp_service);
+                const pressureClean = data.load_points.map(lp => lp.steam_pressure_clean);
+                const pressureService = data.load_points.map(lp => lp.steam_pressure_service);
+                
+                // Create charts with outlet temp as x-axis
+                createCombinedChart(outletTemps, tempClean, tempService, pressureClean, pressureService, data, 'Process Outlet Temperature (°F)');
+                
+                // Populate table
+                populateTable(data.load_points, mode);
+            }
         }
         
         // Create combined temperature and pressure chart (dual y-axis)
-        function createCombinedChart(loads, tempClean, tempService, pressureClean, pressureService, data) {
+        function createCombinedChart(xAxisData, tempClean, tempService, pressureClean, pressureService, data, xAxisLabel) {
             const ctx = document.getElementById('combinedChart').getContext('2d');
             
             if (combinedChart) combinedChart.destroy();
             
+            // Get outlet temp for reference line (Mode 1) or null (Mode 3)
+            const processOutletTemp = data.inputs && data.inputs.process_outlet_temp ? data.inputs.process_outlet_temp : null;
+            
             // Calculate axis ranges to align temperature and pressure visually
-            const allTemps = [...tempClean, ...tempService, data.t_sat_bp_max, data.inputs.process_outlet_temp];
+            const allTemps = processOutletTemp ? 
+                [...tempClean, ...tempService, data.t_sat_bp_max, processOutletTemp] :
+                [...tempClean, ...tempService, data.t_sat_bp_max];
             const allPressures = [...pressureClean, ...pressureService, data.inputs.backpressure_max];
             
             // Add padding below minimum values (10% of range)
@@ -609,11 +722,8 @@
             const pressureMin = Math.floor((pressureMinRaw - pressureRange * 0.1) / 10) * 10;
             const pressureMax = Math.ceil(pressureMaxRaw / 10) * 10;
             
-            combinedChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: loads,
-                    datasets: [
+            // Build datasets array dynamically
+            const datasets = [
                         // Single line for Clean condition (temp on left, pressure on right align)
                         {
                             label: 'Clean Condition',
@@ -637,55 +747,57 @@
                             yAxisID: 'y-temp'
                         },
                         // Reference lines
-                        {
-                            label: 'Backpressure',
-                            data: loads.map(() => data.t_sat_bp_max),
-                            borderColor: '#dc3545',
-                            borderWidth: 2,
-                            borderDash: [5, 5],
-                            pointRadius: 0,
-                            yAxisID: 'y-temp'
-                        },
-                        {
-                            label: 'Process Outlet Temp',
-                            data: loads.map(() => data.inputs.process_outlet_temp),
-                            borderColor: '#6c757d',
-                            borderWidth: 2,
-                            borderDash: [10, 5],
-                            pointRadius: 0,
-                            yAxisID: 'y-temp'
-                        },
-                        // Pressure values (aligned to match temperature visually)
-                        {
-                            label: 'Clean Pressure',
-                            data: pressureClean,
-                            borderColor: '#28a745',
-                            borderWidth: 0,
-                            pointRadius: 0,
-                            yAxisID: 'y-pressure',
-                            hidden: true // Hidden by default, shows in tooltip
-                        },
-                        {
-                            label: 'Service Pressure',
-                            data: pressureService,
-                            borderColor: '#ffc107',
-                            borderWidth: 0,
-                            pointRadius: 0,
-                            yAxisID: 'y-pressure',
-                            hidden: true // Hidden by default, shows in tooltip
-                        },
-                        /*
-                                                {
-                                                    label: 'Backpressure (Max)',
-                                                    data: loads.map(() => data.inputs.backpressure_max),
-                                                    borderColor: '#dc3545',
-                                                    borderWidth: 0,
-                                                    pointRadius: 0,
-                                                    yAxisID: 'y-pressure',
-                                                    hidden: true // Hidden by default, shows in tooltip
-                                                }
-                        */
-                    ]
+                {
+                    label: 'Backpressure Sat Temp',
+                    data: xAxisData.map(() => data.t_sat_bp_max),
+                    borderColor: '#dc3545',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    yAxisID: 'y-temp'
+                }
+            ];
+            
+            // Add process outlet temp line only for Mode 1
+            if (processOutletTemp !== null) {
+                datasets.push({
+                    label: 'Process Outlet Temp',
+                    data: xAxisData.map(() => processOutletTemp),
+                    borderColor: '#6c757d',
+                    borderWidth: 2,
+                    borderDash: [10, 5],
+                    pointRadius: 0,
+                    yAxisID: 'y-temp'
+                });
+            }
+            
+            // Add hidden pressure datasets for tooltip
+            datasets.push(
+                {
+                    label: 'Clean Pressure',
+                    data: pressureClean,
+                    borderColor: '#28a745',
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    yAxisID: 'y-pressure',
+                    hidden: true
+                },
+                {
+                    label: 'Service Pressure',
+                    data: pressureService,
+                    borderColor: '#ffc107',
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    yAxisID: 'y-pressure',
+                    hidden: true
+                }
+            );
+            
+            combinedChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: xAxisData,
+                    datasets: datasets
                 },
                 options: {
                     responsive: true,
@@ -748,10 +860,21 @@
                         x: {
                             title: {
                                 display: true,
-                                text: 'Load (%)',
+                                text: xAxisLabel,
                                 font: {
                                     size: 14,
                                     weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                callback: function(value, index, ticks) {
+                                    // Get the actual label (temperature value) from the data
+                                    const label = this.getLabelForValue(value);
+                                    // For temperature values, show only 1 decimal place
+                                    if (xAxisLabel.includes('Temperature')) {
+                                        return typeof label === 'number' ? label.toFixed(1) : parseFloat(label).toFixed(1);
+                                    }
+                                    return label;
                                 }
                             }
                         },
@@ -800,11 +923,46 @@
         }
         
         // Populate results table
-        function populateTable(loadPoints) {
+        function populateTable(loadPoints, mode) {
             const tbody = document.getElementById('resultsTableBody');
+            const thead = document.getElementById('resultsTable').querySelector('thead tr');
             tbody.innerHTML = '';
             
+            // Update table headers based on mode
+            if (mode === 'mode3') {
+                thead.innerHTML = `
+                    <tr>
+                        <th>Outlet Temp<br>(°F)</th>
+                        <th>Duty<br>(BTU/hr)</th>
+                        <th>T_steam Clean<br>(°F)</th>
+                        <th>P_steam Clean<br>(psig)</th>
+                        <th>Flow Clean<br>(lb/hr)</th>
+                        <th>T_steam Service<br>(°F)</th>
+                        <th>P_steam Service<br>(psig)</th>
+                        <th>Flow Service<br>(lb/hr)</th>
+                        <th>Stall?</th>
+                    </tr>
+                `;
+            } else {
+                thead.innerHTML = `
+                    <tr>
+                        <th>Load %</th>
+                        <th>Duty<br>(BTU/hr)</th>
+                        <th>T_steam Clean<br>(°F)</th>
+                        <th>P_steam Clean<br>(psig)</th>
+                        <th>Flow Clean<br>(lb/hr)</th>
+                        <th>T_steam Service<br>(°F)</th>
+                        <th>P_steam Service<br>(psig)</th>
+                        <th>Flow Service<br>(lb/hr)</th>
+                        <th>Stall?</th>
+                    </tr>
+                `;
+            }
+            
             loadPoints.forEach(lp => {
+                const firstCol = mode === 'mode3' ? 
+                    `<strong>${lp.outlet_temp.toFixed(0)}°F</strong>` :
+                    `<strong>${lp.load_pct}%</strong>`;
                 const row = tbody.insertRow();
                 
                 // Determine stall status
@@ -822,7 +980,7 @@
                 }
                 
                 row.innerHTML = `
-                    <td><strong>${lp.load_pct}%</strong></td>
+                    <td>${firstCol}</td>
                     <td>${lp.duty.toFixed(0)}</td>
                     <td>${lp.steam_temp_clean.toFixed(1)}</td>
                     <td>${lp.steam_pressure_clean.toFixed(1)}</td>

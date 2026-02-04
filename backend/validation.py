@@ -374,6 +374,176 @@ class InputValidator:
         
         return None
     
+    def validate_mode3_inputs(self, inputs: Dict) -> Tuple[List[ValidationMessage], List[ValidationMessage]]:
+        """
+        Validate Mode 3 specific inputs (Variable Outlet Temperature)
+        
+        Args:
+            inputs: Dictionary of input parameters
+            
+        Returns:
+            Tuple of (errors, warnings)
+        """
+        self.clear()
+        
+        # Extract values
+        Ti = inputs.get('process_inlet_temp')
+        To_min = inputs.get('temp_out_min')
+        To_max = inputs.get('temp_out_max')
+        duty_ref = inputs.get('duty_ref')
+        area = inputs.get('surface_area')
+        htc_clean = inputs.get('htc_clean')
+        htc_service = inputs.get('htc_service')
+        bp_max = inputs.get('backpressure_max')
+        bp_min = inputs.get('backpressure_min', 0)
+        
+        # ========== HARD REQUIREMENTS FOR MODE 3 ==========
+        
+        # 1) To_min > Ti (must heat the fluid)
+        if Ti is not None and To_min is not None and To_min <= Ti:
+            self.add_error(
+                field='temp_out_min',
+                value=To_min,
+                message=f'Minimum outlet temperature ({To_min}°F) must be greater than inlet temperature ({Ti}°F)',
+                reason=f'Steam heating requires To > Ti. No heat transfer possible when To ≤ Ti',
+                suggested_fix=f'Set minimum outlet temperature above inlet: To_min > {Ti}°F (e.g., {Ti + 50}°F)',
+                code='TO_MIN_TOO_LOW'
+            )
+        
+        # 2) To_max > Ti
+        if Ti is not None and To_max is not None and To_max <= Ti:
+            self.add_error(
+                field='temp_out_max',
+                value=To_max,
+                message=f'Maximum outlet temperature ({To_max}°F) must be greater than inlet temperature ({Ti}°F)',
+                reason=f'Steam heating requires To > Ti. No heat transfer possible when To ≤ Ti',
+                suggested_fix=f'Set maximum outlet temperature above inlet: To_max > {Ti}°F (e.g., {Ti + 100}°F)',
+                code='TO_MAX_TOO_LOW'
+            )
+        
+        # 3) To_max > To_min (valid range)
+        if To_min is not None and To_max is not None and To_max <= To_min:
+            self.add_error(
+                field='temp_out_max',
+                value=To_max,
+                message=f'Maximum outlet temperature ({To_max}°F) must be greater than minimum ({To_min}°F)',
+                reason='Invalid temperature range for sweep analysis',
+                suggested_fix=f'Set To_max > To_min (e.g., To_max = {To_min + 50}°F)',
+                code='TO_RANGE_INVALID'
+            )
+        
+        # 4) Duty / Area / U must be positive (same as Mode 1)
+        if duty_ref is not None and duty_ref <= 0:
+            self.add_error(
+                field='duty_ref',
+                value=duty_ref,
+                message=f'Reference duty must be > 0 (entered: {duty_ref})',
+                reason='Heat duty represents energy transfer rate; zero or negative values are physically meaningless',
+                suggested_fix='Enter reference duty (constant) in BTU/hr (e.g., 1,257,060 BTU/hr)',
+                code='DUTY_REF_NONPOSITIVE'
+            )
+        
+        if area is not None and area <= 0:
+            self.add_error(
+                field='surface_area',
+                value=area,
+                message=f'Heat-transfer area must be > 0 (entered: {area})',
+                reason='Surface area is required for heat transfer; zero or negative values are invalid',
+                suggested_fix='Enter heat exchanger surface area in ft² (e.g., 58.71 ft²)',
+                code='AREA_NONPOSITIVE'
+            )
+        
+        if htc_clean is not None and htc_clean <= 0:
+            self.add_error(
+                field='htc_clean',
+                value=htc_clean,
+                message=f'Overall heat-transfer coefficient (U clean) must be > 0 (entered: {htc_clean})',
+                reason='U represents thermal conductance; zero or negative values prevent heat transfer',
+                suggested_fix='Enter overall U in BTU/(hr·ft²·°F) for clean condition (typical: 100-200)',
+                code='HTC_CLEAN_NONPOSITIVE'
+            )
+        
+        if htc_service is not None and htc_service <= 0:
+            self.add_error(
+                field='htc_service',
+                value=htc_service,
+                message=f'Overall heat-transfer coefficient (U service) must be > 0 (entered: {htc_service})',
+                reason='U represents thermal conductance; zero or negative values prevent heat transfer',
+                suggested_fix='Enter overall U in BTU/(hr·ft²·°F) for fouled/service condition (typical: 80-150)',
+                code='HTC_SERVICE_NONPOSITIVE'
+            )
+        
+        # 5) Backpressure validation (same as Mode 1)
+        if bp_max is not None and bp_max < 0:
+            self.add_error(
+                field='backpressure_max',
+                value=bp_max,
+                message=f'Backpressure must be ≥ 0 psig (entered: {bp_max})',
+                reason='Gauge pressure below atmospheric is vacuum; condensate systems operate at positive pressure',
+                suggested_fix='Enter backpressure in psig (0 = atmospheric, typical range: 0-100 psig)',
+                code='BACKPRESSURE_NEGATIVE'
+            )
+        
+        # 6) Temperature range warnings
+        if Ti is not None and To_min is not None:
+            delta_T_min = To_min - Ti
+            if delta_T_min < 10:
+                self.add_warning(
+                    field='temp_out_min',
+                    value=To_min,
+                    message=f'Small temperature difference between inlet and minimum outlet (ΔT = {delta_T_min:.1f}°F)',
+                    reason='Low ΔT may require very high steam pressures and cause numerical sensitivity',
+                    suggested_fix=f'Consider increasing To_min to at least {Ti + 20}°F for more realistic operation',
+                    code='SMALL_DELTA_T'
+                )
+        
+        #  7) Temperature range bounds
+        if To_min is not None:
+            if To_min < self.TEMP_MIN or To_min > self.TEMP_MAX:
+                self.add_error(
+                    field='temp_out_min',
+                    value=To_min,
+                    message=f'Minimum outlet temperature ({To_min}°F) is outside supported bounds ({self.TEMP_MIN}°F to {self.TEMP_MAX}°F)',
+                    reason='Temperature is outside validated range for this tool',
+                    suggested_fix='Check units (°F vs °C) and re-enter.',
+                    code='TO_MIN_OUT_OF_RANGE'
+                )
+        
+        if To_max is not None:
+            if To_max < self.TEMP_MIN or To_max > self.TEMP_MAX:
+                self.add_error(
+                    field='temp_out_max',
+                    value=To_max,
+                    message=f'Maximum outlet temperature ({To_max}°F) is outside supported bounds ({self.TEMP_MIN}°F to {self.TEMP_MAX}°F)',
+                    reason='Temperature is outside validated range for this tool',
+                    suggested_fix='Check units (°F vs °C) and re-enter.',
+                    code='TO_MAX_OUT_OF_RANGE'
+                )
+            elif To_max >= self.TEMP_CRITICAL_MARGIN:
+                self.add_error(
+                    field='temp_out_max',
+                    value=To_max,
+                    message=f'Maximum outlet temperature ({To_max}°F) is too close to water critical point ({self.TEMP_CRITICAL}°F)',
+                    reason='Saturation properties become ill-conditioned near critical point; results unreliable',
+                    suggested_fix='Reduce maximum outlet temperature below 700°F',
+                    code='TO_MAX_NEAR_CRITICAL'
+                )
+        
+        # ========== MODE 3 WARNINGS ==========
+        
+        # 1) U_service > U_clean
+        if htc_clean is not None and htc_service is not None and htc_service > htc_clean:
+            self.add_warning(
+                field='htc_service',
+                value=htc_service,
+                message=f'Service (fouled) U ({htc_service}) is higher than clean U ({htc_clean})',
+                reason='Fouling typically reduces heat transfer; service U should be ≤ clean U',
+                suggested_fix='Verify U values. Service U should account for fouling resistance (typically 70-90% of clean U)',
+                code='HTC_SERVICE_EXCEEDS_CLEAN'
+            )
+        
+        return self.errors, self.warnings
+    
     def format_messages(self, messages: List[ValidationMessage]) -> List[Dict]:
         """
         Format messages for API response.
