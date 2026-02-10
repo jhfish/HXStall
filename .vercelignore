@@ -12,3 +12,10 @@ inspect_excel.py
 excel_structure.json
 MODE_3_IMPLEMENTATION_PROMPT.md
 README.md
+.git/
+.vercel/
+.env.local
+*.md
+!VERCEL_DEPLOYMENT.md
+calculation_engine.py
+validation.py
