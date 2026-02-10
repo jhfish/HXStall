@@ -1,17 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/help.html",
-      "dest": "frontend/help.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/index.html"
+      "source": "/api/:path*",
+      "destination": "/api/index"
     }
   ]
 }
