@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.xlsm
+backend/
+docs/
+test_*.py
+simple_test.py
+parity_tests.py
+inspect_excel.py
+excel_structure.json
+MODE_3_IMPLEMENTATION_PROMPT.md
+README.md
