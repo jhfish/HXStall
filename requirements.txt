@@ -1,4 +1,3 @@
 fastapi==0.111.0
 iapws==1.5.3
 pydantic==2.6.1
-numpy==1.26.4
